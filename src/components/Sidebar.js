@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 
 import "../assets/styles/styles.css";
@@ -20,21 +20,15 @@ const Sidebar = () => {
       </div>
       <div className="dashboardMenu">
         <ul className="dashboardMenuList">
-          <li className="dashboardMenuListItem">
-            <a href="/dashboard" className="dashboardMenuListLink">
-              Dashboard
-            </a>
-          </li>
-          <li className="dashboardMenuListItem">
-            <a href="/dashboard" className="dashboardMenuListLink">
-              Map
-            </a>
-          </li>
-          <li className="dashboardMenuListItem">
-            <a href="/dashboard" className="dashboardMenuListLink">
-              All Claims
-            </a>
-          </li>
+          <NavLink to="/dashboard" className="dashboardMenuListLink">
+            <li className="dashboardMenuListItem">Dashboard</li>
+          </NavLink>
+          <NavLink to="/map" className="dashboardMenuListLink">
+            <li className="dashboardMenuListItem">Map</li>
+          </NavLink>
+          <NavLink to="/claims" className="dashboardMenuListLink">
+            <li className="dashboardMenuListItem">All Claims</li>
+          </NavLink>
           <li className="dashboardMenuListItem">
             <a href="/dashboard" className="dashboardMenuListLink">
               Incoming Claims
