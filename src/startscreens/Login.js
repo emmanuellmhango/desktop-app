@@ -24,12 +24,13 @@ const Login = () => {
         }
       );
       const { success, user } = response.data;
-      if (success) {
-        localStorage.setItem("user", JSON.stringify(user));
-        navigate("/dashboard");
-      } else {
-        alert("Wrong email or password, please try again!");
-      }
+      console.log(response.data);
+      // if (success) {
+      //   localStorage.setItem("user", JSON.stringify(user));
+      //   navigate("/dashboard");
+      // } else {
+      //   alert("Wrong email or password, please try again!");
+      // }
     } catch (error) {
       console.log(error);
     }
