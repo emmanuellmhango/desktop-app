@@ -1,13 +1,33 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import URL from "../state/url";
 import logo from "../assets/images/logo.png";
 import "../assets/styles/styles.css";
 
 const Login = () => {
   const navigate = useNavigate();
-  const handleLogin = (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
-    navigate("/dashboard");
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    const data = { email, password };
+    // console.log(data);
+    try {
+      const response = await axios.get(
+        URL,
+        { params: data },
+        {
+          headers: {
+            "Content-Type": "application/JSON",
+          },
+        }
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+    // navigate("/dashboard");
   };
   return (
     <div className="mainDiv">
@@ -24,8 +44,8 @@ const Login = () => {
           <br />
           <input
             type="email"
-            id="username"
-            name="username"
+            id="email"
+            name="email"
             className="form-control-input glow"
             placeholder="Enter email"
             required
