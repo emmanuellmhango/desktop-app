@@ -13,11 +13,6 @@ const Sidebar = () => {
   };
   return (
     <>
-      <div className="dashboardLogoHeader">
-        <picture>
-          <img src={logo} alt="logo" className="logo" />
-        </picture>
-      </div>
       <div className="dashboardMenu">
         <ul className="dashboardMenuList">
           <NavLink to="/dashboard" className="dashboardMenuListLink">
