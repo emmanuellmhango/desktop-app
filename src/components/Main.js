@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers } from "../actionpages/fetchUsers";
 import { addAppUsers } from "../state/appUsers";
@@ -11,6 +11,7 @@ const Main = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
   const { appUsers } = useSelector((state) => state.appUsers);
+  const [recentUsers, setRecentUsers] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,9 +20,29 @@ const Main = () => {
     };
 
     fetchData();
-  }, [dispatch]);
+    newUsers(appUsers);
+  }, [dispatch, appUsers]);
 
-  console.log(appUsers);
+  const newUsers = (users) => {
+    const today = new Date();
+    const startOfDay = new Date(
+      today.getFullYear(),
+      today.getMonth(),
+      today.getDate()
+    );
+    const endOfDay = new Date(
+      today.getFullYear(),
+      today.getMonth(),
+      today.getDate() + 1
+    );
+
+    const total = users.filter((user) => {
+      const createdAt = new Date(user.created_at);
+      return createdAt >= startOfDay && createdAt < endOfDay;
+    }).length;
+    setRecentUsers(total);
+  };
+
   const labels = ["January", "February", "March", "April", "May", "June"];
 
   const data = {
@@ -42,7 +63,7 @@ const Main = () => {
         <div className="analyticsHeader">
           <div className="analyticsHeaderItem">
             <span className="analyticsHeaderItemText">New Users</span>
-            <span className="analyticsHeaderItemNumber">100</span>
+            <span className="analyticsHeaderItemNumber">{recentUsers}</span>
           </div>
           <div className="analyticsHeaderItem">
             <span className="analyticsHeaderItemText">Incoming Claims</span>
