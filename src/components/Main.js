@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUsers } from "../actionpages/fetchUsers";
+import { addAppUsers } from "../state/appUsers";
 import Chart from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 
 import "../assets/styles/styles.css";
 
 const Main = () => {
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.user);
+  const { appUsers } = useSelector((state) => state.appUsers);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetchUsers();
+      dispatch(addAppUsers(response));
+    };
+
+    fetchData();
+  }, [dispatch]);
+
+  console.log(appUsers);
   const labels = ["January", "February", "March", "April", "May", "June"];
 
   const data = {
@@ -42,7 +59,9 @@ const Main = () => {
         <div className="analyticsHeader">
           <div className="analyticsHeaderItem">
             <span className="analyticsHeaderItemText">Total Users</span>
-            <span className="analyticsHeaderItemNumber">100</span>
+            <span className="analyticsHeaderItemNumber">
+              {appUsers ? appUsers.length : 0}
+            </span>
           </div>
           <div className="analyticsHeaderItem">
             <span className="analyticsHeaderItemText">Total Claims</span>

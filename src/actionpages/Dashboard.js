@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUsers } from "./fetchUsers";
 import Main from "../components/Main";
 import Sidebar from "../components/Sidebar";
 import "../assets/styles/styles.css";
