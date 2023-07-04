@@ -6,6 +6,7 @@ import Chart from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 
 import "../assets/styles/styles.css";
+import { NavLink } from "react-router-dom";
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const Main = () => {
 
     fetchData();
     newUsers(appUsers);
-  }, [dispatch, appUsers]);
+  }, []);
 
   const newUsers = (users) => {
     const today = new Date();
@@ -60,38 +61,55 @@ const Main = () => {
   return (
     <div className="dashboardAnalytics">
       <div className="analyticsChartContainer">
-        <div className="analyticsHeader">
-          <div className="analyticsHeaderItem">
-            <span className="analyticsHeaderItemText">New Users</span>
-            <span className="analyticsHeaderItemNumber">{recentUsers}</span>
-          </div>
-          <div className="analyticsHeaderItem">
-            <span className="analyticsHeaderItemText">Incoming Claims</span>
-            <span className="analyticsHeaderItemNumber">50</span>
-          </div>
-          <div className="analyticsHeaderItem">
-            <span className="analyticsHeaderItemText">New Clients</span>
-            <span className="analyticsHeaderItemNumber">50</span>
-          </div>
-        </div>
         <div className="analyticsChartTable">
           <Line data={data} />
         </div>
-        <div className="analyticsHeader">
-          <div className="analyticsHeaderItem">
-            <span className="analyticsHeaderItemText">Total Users</span>
+
+        <div className="gridWrapper">
+          <div class="gridItem">
+            <span className="analyticsHeaderItemText">New Users</span>
+            <br />
+            <span className="analyticsHeaderItemNumber">
+              {recentUsers ? recentUsers : 0}
+            </span>
+          </div>
+          <div class="gridItem">
+            <span className="analyticsHeaderItemText">All Users</span>
+            <br />
             <span className="analyticsHeaderItemNumber">
               {appUsers ? appUsers.length : 0}
             </span>
           </div>
-          <div className="analyticsHeaderItem">
-            <span className="analyticsHeaderItemText">Total Claims</span>
-            <span className="analyticsHeaderItemNumber">50</span>
+          <div class="gridItem">
+            <span className="analyticsHeaderItemText">New Claims</span>
+            <br />
+            <span className="analyticsHeaderItemNumber">
+              {appUsers ? appUsers.length : 0}
+            </span>
           </div>
-          <div className="analyticsHeaderItem">
-            <span className="analyticsHeaderItemText">Total Clients</span>
-            <span className="analyticsHeaderItemNumber">50</span>
+          <div class="gridItem">
+            <span className="analyticsHeaderItemText">All Claims</span>
+            <br />
+            <span className="analyticsHeaderItemNumber">
+              {appUsers ? appUsers.length : 0}
+            </span>
           </div>
+          <div class="gridItem">
+            <span className="analyticsHeaderItemText">Clients</span>
+            <br />
+            <span className="analyticsHeaderItemNumber">
+              {appUsers ? appUsers.length : 0}
+            </span>
+          </div>
+          <NavLink to="/categories" className="dashboardMenuListLink">
+            <div class="gridItem">
+              <span className="analyticsHeaderItemText">Categories</span>
+              <br />
+              <span className="analyticsHeaderItemNumber">
+                {appUsers ? appUsers.length : 0}
+              </span>
+            </div>
+          </NavLink>
         </div>
       </div>
     </div>

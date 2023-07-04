@@ -44,6 +44,7 @@
   font-size: 2rem;
   font-weight: 400;
   margin: 0;
+  text-align: center;
 }
 
 .loginButtonDiv {
@@ -100,6 +101,12 @@
   box-shadow: 0 0 0 0.2rem rgba(69, 132, 168, 0.5);
 }
 
+.label-client {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #606263;
+}
+
 .labels {
   font-size: 1.2rem;
   font-weight: 500;
@@ -146,6 +153,196 @@
   background-color: #4060a9;
 }
 
+.categoryBody {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 85%;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.clientForm {
+  width: 30%;
+  height: 60vh;
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin: 1.5rem 10px 0 10px;
+}
+
+.categoryForm {
+  width: 30%;
+  height: 40vh;
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin: 1.5rem 10px 0 10px;
+}
+
+.categoriesList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 70%;
+  height: 85vh;
+  margin: 1.5rem 10px 0 0;
+  border: 1px solid #ccc;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 0;
+  color: #606263;
+  padding-bottom: 20px;
+}
+
+.form-group-client {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.form-group-push {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.delete-icon {
+  color: green; 
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.delete-icon:hover {
+  color: red;
+}
+
+.categoryItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 95%;
+  padding: 15px;
+  background-color: #dbdcdd;
+  margin: 3px;
+  color: #606263;
+}
+
+.categoryItem:hover {
+  background-color: #4060a9;
+  color: #fff;
+}
+
+.categoriesListBody {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.categoriesListHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+}
+
+.categoriesListDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 85vh;
+  margin: 0 10px 0 0;
+}
+
+.form-control-btn-client {
+  width: 50%;
+  max-width: 20rem;
+  height: 2.5rem;
+  border-radius: 25px;
+  background-color: #5e2bff;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.form-control-btn {
+  width: 40%;
+  max-width: 20rem;
+  height: 2.5rem;
+  border-radius: 25px;
+  background-color: #5e2bff;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.form-control-btn:hover {
+  background-color: #4060a9;
+}
+
+.category-label {
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding-bottom: 3rem;
+  color: #606263;
+}
+
+.form-control-l-icon {
+  width: 100%;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  height: 2.5rem;
+  margin: 10px 0;
+  border: 1px solid #5e2bff;
+  font-size: 1.2rem;
+  outline: none;
+  font-weight: 500;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.form-control-l {
+  width: 100%;
+  border-radius: 20px;
+  padding: 0 1rem;
+  height: 2.5rem;
+  margin: 10px 0;
+  border: 1px solid #5e2bff;
+  font-size: 1.2rem;
+  outline: none;
+  font-weight: 500;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.form-control-l:focus,
+.form-control-l:hover {
+  box-shadow: 0 0 0 0.2rem rgba(69, 132, 168, 0.5);
+  border-color: #4060a9;
+  cursor: pointer;
+}
+
 .contentBody {
   display: flex;
   flex-direction: column;
@@ -186,11 +383,10 @@
 }
 
 .dashboardMenuListItem {
-  margin: 10px 10px;
+  margin: 10px 0;
   padding: 15px;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
-  background-color: #4564ac;
 }
 
 .dashboardMenuListItem:hover {
@@ -267,4 +463,27 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.gridWrapper {
+  margin-top: 10px;
+  width: 100%;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, 170px);
+  justify-content: space-between;
+  border-top: 1px solid #5e2bff;
+  padding-top: 10px;
+}
+
+.gridItem {
+  background-color: #4060a9;
+  color: #fff;
+  padding: 40px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.gridItem:hover {
+  background-color: #5e2bff;
 }

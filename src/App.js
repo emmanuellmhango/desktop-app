@@ -5,6 +5,8 @@ import Home from "./startscreens/Home";
 import Dashboard from "./actionpages/Dashboard";
 import Map from "./actionpages/Map";
 import Claims from "./actionpages/Claims";
+import Categories from "./actionpages/Categories";
+import Clients from "./actionpages/Clients";
 
 const App = () => {
   return (
@@ -15,6 +17,8 @@ const App = () => {
         <Route exact path="/dashboard" element={<Dashboard />} />
         <Route exact path="/map" element={<Map />} />
         <Route exact path="/claims" element={<Claims />} />
+        <Route exact path="/categories" element={<Categories />} />
+        <Route exact path="/clients" element={<Clients />} />
       </Routes>
     </Router>
   );

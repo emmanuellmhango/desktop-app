@@ -28,6 +28,12 @@ const Sidebar = () => {
               Incoming Claims
             </a>
           </li>
+          <NavLink to="/clients" className="dashboardMenuListLink">
+            <li className="dashboardMenuListItem">Clients</li>
+          </NavLink>
+          <NavLink to="/categories" className="dashboardMenuListLink">
+            <li className="dashboardMenuListItem">Categories</li>
+          </NavLink>
           <li className="dashboardMenuListItem">
             <a href="/dashboard" className="dashboardMenuListLink">
               User Management

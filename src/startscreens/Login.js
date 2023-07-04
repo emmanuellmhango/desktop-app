@@ -45,8 +45,9 @@ const Login = () => {
             alert("Wrong email or password, please try again!");
           }
         })
-        .catch(() => {
+        .catch((error) => {
           setIsLoading(false);
+          console.log(error);
           alert("Oops! Something went wrong, please try again");
         });
     } catch (error) {
@@ -54,6 +55,7 @@ const Login = () => {
       alert("Oops! Something went wrong, please check your network");
     }
   };
+
   return (
     <div className="mainDiv">
       <div className="loginLogoHeader">
