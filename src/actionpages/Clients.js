@@ -27,7 +27,7 @@ const Clients = () => {
   useEffect(() => {
     fetchClients();
   }, []);
-  console.log(clients);
+
   return (
     <div className="dashboardMainDiv">
       <div className="sidebarMenu">

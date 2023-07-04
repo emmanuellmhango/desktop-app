@@ -34,11 +34,9 @@ const Sidebar = () => {
           <NavLink to="/categories" className="dashboardMenuListLink">
             <li className="dashboardMenuListItem">Categories</li>
           </NavLink>
-          <li className="dashboardMenuListItem">
-            <a href="/dashboard" className="dashboardMenuListLink">
-              User Management
-            </a>
-          </li>
+          <NavLink to="/users" className="dashboardMenuListLink">
+            <li className="dashboardMenuListItem">User Management</li>
+          </NavLink>
         </ul>
         <div className="logoutButtonDiv">
           <button

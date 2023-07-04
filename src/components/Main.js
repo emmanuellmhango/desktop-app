@@ -1,18 +1,40 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { fetchUsers } from "../actionpages/fetchUsers";
 import { addAppUsers } from "../state/appUsers";
+import { addCategory } from "../state/categorySlice";
+import { addClient } from "../state/clientSlice";
+import { fetchClients } from "../actionpages/fetchClients";
 import Chart from "chart.js/auto";
 import { Line } from "react-chartjs-2";
-
+import { fetchCategories } from "../actionpages/fetchCategories";
 import "../assets/styles/styles.css";
-import { NavLink } from "react-router-dom";
 
 const Main = () => {
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.user);
   const { appUsers } = useSelector((state) => state.appUsers);
+  const { categories } = useSelector((state) => state.categories);
+  const { clients } = useSelector((state) => state.clients);
   const [recentUsers, setRecentUsers] = useState(0);
+
+  useEffect(() => {
+    const fetchAllClients = async () => {
+      const response = await fetchClients();
+      dispatch(addClient(response));
+    };
+
+    fetchAllClients();
+  }, []);
+
+  useEffect(() => {
+    const fetchAllCategories = async () => {
+      const response = await fetchCategories();
+      dispatch(addCategory(response));
+    };
+
+    fetchAllCategories();
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -66,47 +88,47 @@ const Main = () => {
         </div>
 
         <div className="gridWrapper">
-          <div class="gridItem">
+          <div className="gridItem">
             <span className="analyticsHeaderItemText">New Users</span>
             <br />
             <span className="analyticsHeaderItemNumber">
               {recentUsers ? recentUsers : 0}
             </span>
           </div>
-          <div class="gridItem">
+          <div className="gridItem">
             <span className="analyticsHeaderItemText">All Users</span>
             <br />
             <span className="analyticsHeaderItemNumber">
               {appUsers ? appUsers.length : 0}
             </span>
           </div>
-          <div class="gridItem">
+          <div className="gridItem">
             <span className="analyticsHeaderItemText">New Claims</span>
             <br />
             <span className="analyticsHeaderItemNumber">
               {appUsers ? appUsers.length : 0}
             </span>
           </div>
-          <div class="gridItem">
+          <div className="gridItem">
             <span className="analyticsHeaderItemText">All Claims</span>
             <br />
             <span className="analyticsHeaderItemNumber">
               {appUsers ? appUsers.length : 0}
             </span>
           </div>
-          <div class="gridItem">
+          <div className="gridItem">
             <span className="analyticsHeaderItemText">Clients</span>
             <br />
             <span className="analyticsHeaderItemNumber">
-              {appUsers ? appUsers.length : 0}
+              {clients ? clients.length : 0}
             </span>
           </div>
           <NavLink to="/categories" className="dashboardMenuListLink">
-            <div class="gridItem">
+            <div className="gridItem">
               <span className="analyticsHeaderItemText">Categories</span>
               <br />
               <span className="analyticsHeaderItemNumber">
-                {appUsers ? appUsers.length : 0}
+                {categories ? categories.length : 0}
               </span>
             </div>
           </NavLink>

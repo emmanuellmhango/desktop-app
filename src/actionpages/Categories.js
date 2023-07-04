@@ -27,7 +27,7 @@ const Categories = () => {
   useEffect(() => {
     fetchCategories();
   }, []);
-  console.log(categories);
+
   return (
     <div className="dashboardMainDiv">
       <div className="sidebarMenu">

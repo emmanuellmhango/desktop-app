@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import { GENERAL_URL } from "../../state/url";
 import LoadingSpinner from "../../startscreens/Spinner";
-import { addCategory } from "../../state/categorySlice";
+import { addClient } from "../../state/clientSlice";
 
 import "../../assets/styles/styles.css";
 
@@ -11,34 +11,36 @@ const ClientForm = () => {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     setIsLoading(true);
-    const name = event.target.name.value;
-    const phone = event.target.phone.value;
-    const email = event.target.email.value;
-    const icon = event.target.icon.files[0];
-    const formData = { name, phone, email, icon };
-    event.target.name.value = "";
-    event.target.phone.value = "";
-    event.target.email.value = "";
-    event.target.icon.value = "";
-    await axios
-      .post(`${GENERAL_URL}/categories`, formData)
-      .then((response) => {
-        setIsLoading(false);
-        const { success, categories } = response.data;
-        if (success) {
-          dispatch(addCategory(categories));
-        } else {
-          alert(`Error saving data, Please try again!!`);
-        }
-      })
-      .catch((error) => {
-        setIsLoading(false);
-        console.log(error);
-        alert("Oops! Something went wrong, please try again");
+
+    const formData = new FormData();
+    formData.append("client[name]", e.target.name.value);
+    formData.append("client[phone]", e.target.phone.value);
+    formData.append("client[email]", e.target.email.value);
+    formData.append("client[icon]", e.target.icon.files[0]);
+
+    try {
+      const response = await axios.post(`${GENERAL_URL}/clients`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
       });
+
+      setIsLoading(false);
+      const { success, clients } = response.data;
+
+      if (success) {
+        dispatch(addClient(clients));
+      } else {
+        alert("Error saving data. Please try again!");
+      }
+    } catch (error) {
+      setIsLoading(false);
+      console.log(error);
+      alert("Oops! Something went wrong. Please try again.");
+    }
   };
   return (
     <form id="form-edt" onSubmit={handleSubmit}>
@@ -90,8 +92,9 @@ const ClientForm = () => {
         </label>
         <input
           type="file"
-          id="icon"
           name="icon"
+          accept="image/*"
+          multiple={false}
           className="form-control-l-icon"
           required
         />

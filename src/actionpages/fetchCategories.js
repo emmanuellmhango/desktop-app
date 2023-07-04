@@ -9,6 +9,6 @@ export const fetchCategories = async () => {
       return categories;
     }
   } catch (error) {
-    console.log(error);
+    return 0;
   }
 };

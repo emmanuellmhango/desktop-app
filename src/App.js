@@ -7,6 +7,7 @@ import Map from "./actionpages/Map";
 import Claims from "./actionpages/Claims";
 import Categories from "./actionpages/Categories";
 import Clients from "./actionpages/Clients";
+import UserManagement from "./actionpages/UserManagement";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route exact path="/claims" element={<Claims />} />
         <Route exact path="/categories" element={<Categories />} />
         <Route exact path="/clients" element={<Clients />} />
+        <Route exact path="/users" element={<UserManagement />} />
       </Routes>
     </Router>
   );
