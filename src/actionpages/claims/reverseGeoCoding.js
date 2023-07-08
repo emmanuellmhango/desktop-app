@@ -1,7 +1,7 @@
 import axios from "axios";
 import { GEO_URL } from "../../state/url";
 
-export const reverGeoCode = async (location) => {
+export const reverseGeoCode = async (location) => {
   if (location === null) {
     return;
   }

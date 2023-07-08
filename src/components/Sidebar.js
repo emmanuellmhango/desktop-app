@@ -23,11 +23,9 @@ const Sidebar = () => {
           <NavLink to="/claims" className="dashboardMenuListLink">
             <li className="dashboardMenuListItem">All Claims</li>
           </NavLink>
-          <li className="dashboardMenuListItem">
-            <a href="/dashboard" className="dashboardMenuListLink">
-              Incoming Claims
-            </a>
-          </li>
+          <NavLink to="/incoming-claims" className="dashboardMenuListLink">
+            <li className="dashboardMenuListItem">Incoming Claims</li>
+          </NavLink>
           <NavLink to="/clients" className="dashboardMenuListLink">
             <li className="dashboardMenuListItem">Clients</li>
           </NavLink>

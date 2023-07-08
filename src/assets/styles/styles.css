@@ -208,15 +208,52 @@
   border: 1px solid #ccc;
 }
 
+.claimsHolderList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 85vh;
+  background-color: #4060a9;
+  color: #fff;
+  overflow-y: scroll;
+}
+
+.claimsListAll {
+  font-size: 1.1rem;
+}
+
+.claimsListContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 80%;
+  height: 85vh;
+  margin: 1.5rem 10px 0 0;
+  border: 2px solid #ccc;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  
+}
+
+.ClaimsForm {
+  width: 20%;
+  height: 75vh;
+  border: 1px solid #ccc;
+  margin: 1.5rem 10px 0 10px;
+}
+
+
 .ClaimsList {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  width: 90%;
+  width: 95%;
   height: 90vh;
   margin: 0.5rem 10px 0 0;
-  border: 1px solid #ccc;
 }
 
 .app-users-list {
@@ -298,7 +335,6 @@
   align-items: center;
   justify-content: space-between;
   width: 99%;
-  border-bottom: 1px solid #ccc;
 }
 
 .headerIconList {
@@ -465,7 +501,7 @@
 }
 
 .dashboardMenuListItem:hover {
-  background-color: #4584a8;
+  background-color: #5e2bff;
 }
 
 .dashboardMenuListItem:focus {
@@ -493,7 +529,7 @@
   max-width: 20rem;
   height: 2.5rem;
   border-radius: 25px;
-  background-color: #5471b4;
+  background-color: #5e2bff;
   color: rgb(226, 224, 224);
   font-size: 1.2rem;
   border: none;
@@ -584,9 +620,9 @@
 }
 
 .tableRow:hover {
-  background-color: #4060a9;
-  color: #fff;
-  cursor: pointer;
+  background-color: #e4e3e3;
+  color: #606263;
+  cursor: cell;
   transition: border-color 0.2s ease-in-out;
 }
 
@@ -601,3 +637,120 @@ th,td {
 .userCounter {
   width: 70px;
 }
+
+.claimsListItem {
+  margin: 10px 0;
+  padding: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.claimsListItem:hover {
+  background-color: #5e2bff;
+}
+
+.claimsListItem:focus {
+  background-color: #3a1c9e;
+}
+
+.claimsBody {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+}
+
+.mapItems {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 90%;
+  height: 100vh;
+  background-color: #fff;
+}
+
+.displayMap {
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.mapTitle {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin: 0;
+  padding: 10px;
+}
+
+.mapLoading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.actionTD {
+  background-color: #4060a9;
+  color: #fff;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.actionButtonForward {
+  background-color: #5e2bff;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.actionButtonForward:hover {
+  background-color: #4060a9;
+  transition: background-color 0.2s ease-in-out;
+  transform: rotate(4deg);
+}
+
+.actionButtonReject {
+  background-color: rgb(236, 74, 16);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.actionButtonReject:hover {
+  background-color: coral;
+  transition: background-color 0.2s ease-in-out;
+  transform: rotate(-4deg);
+}
+
+.forwardIcon {
+  font-size: 1.5rem;
+}
+
+.space-forward {
+  font-size: 1.5rem;
+}
+
