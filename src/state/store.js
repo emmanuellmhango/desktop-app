@@ -3,6 +3,7 @@ import userSlice from "./userSlice";
 import appUsersSlice from "./appUsers";
 import categorySlice from "./categorySlice";
 import clientSlice from "./clientSlice";
+import claimsSlice from "./claimsSlice";
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     appUsers: appUsersSlice.reducer,
     categories: categorySlice.reducer,
     clients: clientSlice.reducer,
+    claims: claimsSlice.reducer,
   },
 });
 

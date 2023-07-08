@@ -1,5 +1,6 @@
 import React from "react";
 import Sidebar from "../components/Sidebar";
+import AllClaims from "./claims/AllClaims";
 
 const Claims = () => {
   return (
@@ -7,7 +8,9 @@ const Claims = () => {
       <div className="sidebarMenu">
         <Sidebar />
       </div>
-      <div className="contentBody">Claims</div>
+      <div className="claimsContentBody">
+        <AllClaims />
+      </div>
     </div>
   );
 };
