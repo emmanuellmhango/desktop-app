@@ -148,7 +148,6 @@ const ClientForm = () => {
             />
           </div>
         </div>
-
         <div className="form-group-client-user">
           <div className="formLabel">
             <label htmlFor="email" className="label-client">
@@ -160,6 +159,22 @@ const ClientForm = () => {
               type="email"
               id="email"
               name="email"
+              className="form-control-l-user"
+              required
+            />
+          </div>
+        </div>
+        <div className="form-group-client-user">
+          <div className="formLabel">
+            <label htmlFor="password" className="label-client">
+              Passoword
+            </label>
+          </div>
+          <div className="formInputType">
+            <input
+              type="password"
+              id="password"
+              name="password"
               className="form-control-l-user"
               required
             />
