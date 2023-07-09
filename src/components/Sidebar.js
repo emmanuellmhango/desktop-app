@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate, NavLink } from "react-router-dom";
-import logo from "../assets/images/logo.png";
 
 import "../assets/styles/styles.css";
 
@@ -13,11 +12,6 @@ const Sidebar = () => {
   };
   return (
     <>
-      <div className="dashboardLogoHeader">
-        <picture>
-          <img src={logo} alt="logo" className="logo" />
-        </picture>
-      </div>
       <div className="dashboardMenu">
         <ul className="dashboardMenuList">
           <NavLink to="/dashboard" className="dashboardMenuListLink">
@@ -29,16 +23,18 @@ const Sidebar = () => {
           <NavLink to="/claims" className="dashboardMenuListLink">
             <li className="dashboardMenuListItem">All Claims</li>
           </NavLink>
-          <li className="dashboardMenuListItem">
-            <a href="/dashboard" className="dashboardMenuListLink">
-              Incoming Claims
-            </a>
-          </li>
-          <li className="dashboardMenuListItem">
-            <a href="/dashboard" className="dashboardMenuListLink">
-              User Management
-            </a>
-          </li>
+          <NavLink to="/incoming-claims" className="dashboardMenuListLink">
+            <li className="dashboardMenuListItem">Incoming Claims</li>
+          </NavLink>
+          <NavLink to="/clients" className="dashboardMenuListLink">
+            <li className="dashboardMenuListItem">Client Management</li>
+          </NavLink>
+          <NavLink to="/categories" className="dashboardMenuListLink">
+            <li className="dashboardMenuListItem">Categories</li>
+          </NavLink>
+          <NavLink to="/users" className="dashboardMenuListLink">
+            <li className="dashboardMenuListItem">Mobile Users</li>
+          </NavLink>
         </ul>
         <div className="logoutButtonDiv">
           <button

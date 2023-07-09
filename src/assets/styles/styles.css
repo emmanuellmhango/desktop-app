@@ -7,7 +7,7 @@
 }
 
 .logoHeader {
-  width: 20%;
+  width: 15%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,10 +40,29 @@
   color: #5e2bff;
 }
 
+.clientItemName {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.clientItemIcon {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
+
+.clientlogo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  aspect-ratio: 1/1;
+}
+
 .title {
   font-size: 2rem;
   font-weight: 400;
   margin: 0;
+  text-align: center;
 }
 
 .loginButtonDiv {
@@ -100,6 +119,12 @@
   box-shadow: 0 0 0 0.2rem rgba(69, 132, 168, 0.5);
 }
 
+.label-client {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #606263;
+}
+
 .labels {
   font-size: 1.2rem;
   font-weight: 500;
@@ -146,6 +171,454 @@
   background-color: #4060a9;
 }
 
+.form-group-user-packages {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.user-packages {
+  width: 90px;
+  height: 80px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #5e2bff;
+  color: #fff;
+  border-radius: 15px;
+}
+
+.user-packages:hover {
+  background-color: #9679f8;
+  cursor: pointer;
+}
+
+.selected-user-packages {
+  width: 90px;
+  height: 80px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #4060a9;
+  cursor: pointer;
+  padding: 15px;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 15px;
+  box-shadow: 0 0 0 0.2rem rgba(94, 43, 255, 0.5);
+}
+
+.user-accounts {
+  padding: 14px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #9679f8;
+  border-radius: 25px;
+}
+
+.usermanagementContainerBody {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  width: 90%;
+  height: 100vh;
+  background-color: #fff;
+}
+
+.categoryBody {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 85%;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.clientForm {
+  width: 85%;
+  height: 40vh;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin: 1.5rem 0 0 0;
+  align-self: center;
+}
+
+.userManagementListDiv {
+  width: 100%;
+  height: 45vh;
+}
+
+.iconPart {
+  width: 45%;
+}
+
+.form-group-client-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+  margin-top: 10px;
+
+}
+
+.userForm {
+  width: 50%;
+}
+
+.userAddForm {
+  display: flex;
+  flex-direction: row;
+}
+
+.categoryForm {
+  width: 30%;
+  height: 40vh;
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin: 1.5rem 10px 0 10px;
+}
+
+.categoriesList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 70%;
+  height: 85vh;
+  margin: 1.5rem 10px 0 0;
+  border: 1px solid #ccc;
+}
+
+.userManagementList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 95%;
+  height: 45vh;
+  align-self: center;
+}
+
+.usersContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.claimsHolderList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 85vh;
+  background-color: #4060a9;
+  color: #fff;
+  overflow-y: scroll;
+}
+
+.claimsListAll {
+  font-size: 1.1rem;
+}
+
+.claimsListContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 80%;
+  height: 85vh;
+  margin: 1.5rem 10px 0 0;
+  border: 2px solid #ccc;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  
+}
+
+.ClaimsForm {
+  width: 20%;
+  height: 75vh;
+  border: 1px solid #ccc;
+  margin: 1.5rem 10px 0 10px;
+}
+
+
+.ClaimsList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 95%;
+  height: 90vh;
+  margin: 0.5rem 10px 0 0;
+}
+
+.app-users-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 95%;
+  height: 85vh;
+  margin: 1.5rem auto;
+  border: 1px solid #ccc;
+}
+
+.title-user {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin: 0;
+  color: #606263;
+  padding-bottom: 7px;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 0;
+  color: #606263;
+  padding-bottom: 20px;
+}
+
+.form-group-client-user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.form-group-client {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.formLabel {
+  width: 40%;
+  text-align: right;
+}
+
+.formInputType {
+  width: 60%;
+}
+
+.form-control-l-user {
+  width: 95%;
+  margin-left: 5px;
+  border-radius: 8px;
+  height: 1.8rem;
+  border: 1px solid #5e2bff;
+  font-size: 1.2rem;
+  outline: none;
+  font-weight: 500;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.form-group-select {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.form-group-push {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.delete-icon {
+  color: green; 
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.delete-icon:hover {
+  color: red;
+}
+
+.actionUsersWidth {
+  width: 25px;
+}
+
+.categoryItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 95%;
+  padding: 15px;
+  background-color: #dbdcdd;
+  margin: 3px;
+  color: #606263;
+}
+
+.categoryItem:hover {
+  background-color: #4060a9;
+  color: #fff;
+}
+
+.categoriesListBody {
+  width: 100%;
+  height: 80%;
+  margin: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.claimsListHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 99%;
+}
+
+.headerIconList {
+  font-size: 1.5rem;
+  color: #606263;
+  cursor: pointer;
+}
+
+.headerIconMap {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.headerIconMap:hover,
+.headerIconList:hover {
+  font-size: 2rem;
+}
+
+.categoriesListHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+}
+
+.categoriesListDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 85vh;
+  margin: 0 10px 0 0;
+}
+
+.form-control-btn-client {
+  width: 50%;
+  max-width: 20rem;
+  height: 2.5rem;
+  border-radius: 25px;
+  background-color: #5e2bff;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.form-control-btn {
+  width: 40%;
+  max-width: 20rem;
+  height: 2.5rem;
+  border-radius: 25px;
+  background-color: #5e2bff;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.form-control-btn:hover {
+  background-color: #4060a9;
+}
+
+.category-label {
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding-bottom: 3rem;
+  color: #606263;
+}
+
+.form-control-l-icon {
+  width: 100%;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  height: 2.5rem;
+  margin: 10px 0;
+  border: 1px solid #5e2bff;
+  font-size: 1.2rem;
+  outline: none;
+  font-weight: 500;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.form-control-l {
+  width: 100%;
+  border-radius: 20px;
+  padding: 0 1rem;
+  height: 2.5rem;
+  margin: 10px 0;
+  border: 1px solid #5e2bff;
+  font-size: 1.2rem;
+  outline: none;
+  font-weight: 500;
+  transition: border-color 0.2s ease-in-out;
+}
+
+
+.form-control-l-input {
+  width: 100%;
+  border-radius: 20px;
+  height: 2.2rem;
+  margin: 10px 0;
+  border: 1px solid #5e2bff;
+  font-size: 1.2rem;
+  outline: none;
+  font-weight: 500;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.form-control-l-select {
+  width: 100%;
+}
+
+.form-control-l:focus,
+.form-control-l:hover,
+.form-control-l-user:focus,
+.form-control-l-user:hover,
+.form-control-l-input:hover,
+.form-control-l-input:focus {
+  box-shadow: 0 0 0 0.2rem rgba(69, 132, 168, 0.5);
+  border-color: #4060a9;
+  cursor: pointer;
+}
+
 .contentBody {
   display: flex;
   flex-direction: column;
@@ -154,6 +627,16 @@
   width: 85%;
   height: 100vh;
   background-color: #f5f5f5;
+}
+
+.claimsContentBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 85%;
+  height: 100vh;
+  background-color: #fff;
 }
 
 .dashboardMainDiv {
@@ -186,15 +669,14 @@
 }
 
 .dashboardMenuListItem {
-  margin: 10px 10px;
+  margin: 10px 0;
   padding: 15px;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
-  background-color: #4564ac;
 }
 
 .dashboardMenuListItem:hover {
-  background-color: #4584a8;
+  background-color: #5e2bff;
 }
 
 .dashboardMenuListItem:focus {
@@ -222,7 +704,7 @@
   max-width: 20rem;
   height: 2.5rem;
   border-radius: 25px;
-  background-color: #5471b4;
+  background-color: #5e2bff;
   color: rgb(226, 224, 224);
   font-size: 1.2rem;
   border: none;
@@ -268,3 +750,190 @@
   align-items: center;
   justify-content: center;
 }
+
+.gridWrapper {
+  margin-top: 10px;
+  width: 100%;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, 170px);
+  justify-content: space-between;
+  border-top: 1px solid #5e2bff;
+  padding-top: 10px;
+}
+
+.gridItem {
+  background-color: #4060a9;
+  color: #fff;
+  padding: 40px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.gridItem:hover {
+  background-color: #5e2bff;
+}
+
+.tableUsers {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #bebdbd;
+  table-layout: fixed;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #bebdbd;
+  table-layout: fixed;
+}
+
+.tableHeader {
+  height: 3rem;
+  background-color: #d6d4d4;
+}
+
+.tableRow {
+  border-bottom: 1px solid #bebdbd;
+}
+
+.tableRow:nth-child(even) {
+  background-color: #f3f3f3;
+}
+
+.tableRow:hover {
+  background-color: #e4e3e3;
+  color: #606263;
+  cursor: cell;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.tableRow td {
+  padding: 0.5rem;
+}
+
+th,td {
+  border: 1px solid #bebdbd;
+}
+
+.userCounter {
+  width: 70px;
+}
+
+.claimsListItem {
+  margin: 10px 0;
+  padding: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.claimsListItem:hover {
+  background-color: #5e2bff;
+}
+
+.claimsListItem:focus {
+  background-color: #3a1c9e;
+}
+
+.claimsBody {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+}
+
+.mapItems {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 90%;
+  height: 100vh;
+  background-color: #fff;
+}
+
+.displayMap {
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.mapTitle {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin: 0;
+  padding: 10px;
+  width: 90%;
+}
+
+.mapLoading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.actionTD {
+  background-color: #4060a9;
+  color: #fff;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.actionButtonForward {
+  background-color: #5e2bff;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.actionButtonForward:hover {
+  background-color: #4060a9;
+  transition: background-color 0.2s ease-in-out;
+  transform: rotate(4deg);
+}
+
+.actionButtonReject {
+  background-color: rgb(236, 74, 16);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.actionButtonReject:hover {
+  background-color: coral;
+  transition: background-color 0.2s ease-in-out;
+  transform: rotate(-4deg);
+}
+
+.forwardIcon {
+  font-size: 1.5rem;
+}
+
+.space-forward {
+  font-size: 1.5rem;
+}
+
