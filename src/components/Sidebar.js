@@ -27,13 +27,13 @@ const Sidebar = () => {
             <li className="dashboardMenuListItem">Incoming Claims</li>
           </NavLink>
           <NavLink to="/clients" className="dashboardMenuListLink">
-            <li className="dashboardMenuListItem">Clients</li>
+            <li className="dashboardMenuListItem">Client Management</li>
           </NavLink>
           <NavLink to="/categories" className="dashboardMenuListLink">
             <li className="dashboardMenuListItem">Categories</li>
           </NavLink>
           <NavLink to="/users" className="dashboardMenuListLink">
-            <li className="dashboardMenuListItem">User Management</li>
+            <li className="dashboardMenuListItem">Mobile Users</li>
           </NavLink>
         </ul>
         <div className="logoutButtonDiv">
