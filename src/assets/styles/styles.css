@@ -121,7 +121,7 @@
 
 .label-client {
   font-size: 1.2rem;
-  font-weight: 400;
+  font-weight: 500;
   color: #606263;
 }
 
@@ -171,6 +171,71 @@
   background-color: #4060a9;
 }
 
+.form-group-user-packages {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.user-packages {
+  width: 90px;
+  height: 80px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #5e2bff;
+  color: #fff;
+  border-radius: 15px;
+}
+
+.user-packages:hover {
+  background-color: #9679f8;
+  cursor: pointer;
+}
+
+.selected-user-packages {
+  width: 90px;
+  height: 80px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #4060a9;
+  cursor: pointer;
+  padding: 15px;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 15px;
+  box-shadow: 0 0 0 0.2rem rgba(94, 43, 255, 0.5);
+}
+
+.user-accounts {
+  padding: 14px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #9679f8;
+  border-radius: 25px;
+}
+
+.usermanagementContainerBody {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  width: 90%;
+  height: 100vh;
+  background-color: #fff;
+}
+
 .categoryBody {
   display: flex;
   flex-direction: row;
@@ -182,11 +247,38 @@
 }
 
 .clientForm {
-  width: 30%;
-  height: 60vh;
-  padding: 20px;
+  width: 85%;
+  height: 40vh;
+  padding: 10px;
   border: 1px solid #ccc;
-  margin: 1.5rem 10px 0 10px;
+  margin: 1.5rem 0 0 0;
+  align-self: center;
+}
+
+.userManagementListDiv {
+  width: 100%;
+  height: 45vh;
+}
+
+.iconPart {
+  width: 45%;
+}
+
+.form-group-client-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+}
+
+.userForm {
+  width: 50%;
+}
+
+.userAddForm {
+  display: flex;
+  flex-direction: row;
 }
 
 .categoryForm {
@@ -206,6 +298,21 @@
   height: 85vh;
   margin: 1.5rem 10px 0 0;
   border: 1px solid #ccc;
+}
+
+.userManagementList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 95%;
+  height: 45vh;
+  align-self: center;
+}
+
+.usersContainer {
+  width: 100%;
+  height: 100%;
 }
 
 .claimsHolderList {
@@ -267,6 +374,14 @@
   border: 1px solid #ccc;
 }
 
+.title-user {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin: 0;
+  color: #606263;
+  padding-bottom: 7px;
+}
+
 .title {
   font-size: 2rem;
   font-weight: 500;
@@ -275,12 +390,42 @@
   padding-bottom: 20px;
 }
 
+.form-group-client-user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
 .form-group-client {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: center;
   justify-content: space-between;
-  width: 90%;
+  width: 100%;
+}
+
+.formLabel {
+  width: 40%;
+  text-align: right;
+}
+
+.formInputType {
+  width: 60%;
+}
+
+.form-control-l-user {
+  width: 95%;
+  margin-left: 5px;
+  border-radius: 8px;
+  height: 1.8rem;
+  border: 1px solid #5e2bff;
+  font-size: 1.2rem;
+  outline: none;
+  font-weight: 500;
+  transition: border-color 0.2s ease-in-out;
 }
 
 .form-group-push {
@@ -298,6 +443,10 @@
 
 .delete-icon:hover {
   color: red;
+}
+
+.actionUsersWidth {
+  width: 25px;
 }
 
 .categoryItem {
@@ -318,12 +467,8 @@
 }
 
 .categoriesListBody {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
   width: 100%;
-  height: 100%;
+  height: 80%;
   margin: 0;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -356,7 +501,7 @@
 .categoriesListHeader {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
   width: 100%;
   border-bottom: 1px solid #ccc;
@@ -438,7 +583,9 @@
 }
 
 .form-control-l:focus,
-.form-control-l:hover {
+.form-control-l:hover,
+.form-control-l-user:focus,
+.form-control-l-user:hover {
   box-shadow: 0 0 0 0.2rem rgba(69, 132, 168, 0.5);
   border-color: #4060a9;
   cursor: pointer;
@@ -599,6 +746,13 @@
   background-color: #5e2bff;
 }
 
+.tableUsers {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #bebdbd;
+  table-layout: fixed;
+}
+
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -694,6 +848,7 @@ th,td {
   font-weight: 400;
   margin: 0;
   padding: 10px;
+  width: 90%;
 }
 
 .mapLoading {

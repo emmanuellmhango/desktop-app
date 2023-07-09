@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import { addSelectedClaim } from "../state/selectedClaimSlice";
 import ClaimLocations from "./map/ClaimLocations";
 import ClaimMapDisplay from "./map/ClaimMapDisplay";
+import { ImListNumbered } from "react-icons/im";
 
 const Map = () => {
   const dispatch = useDispatch();
@@ -52,8 +54,21 @@ const Map = () => {
       </div>
       <div className="claimsBody">
         <div className="mapTitle">
-          <h3 className="title">Map</h3>
+          <div className="claimsListHeader">
+            <span>
+              <h3 className="title">Map</h3>
+            </span>
+            <span>
+              <NavLink to="/claims">
+                <ImListNumbered
+                  className="headerIconMap"
+                  title="View as List"
+                />
+              </NavLink>
+            </span>
+          </div>
         </div>
+
         <div className="mapItems">
           <div className="ClaimsForm">
             <ClaimLocations />

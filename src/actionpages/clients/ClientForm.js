@@ -10,29 +10,30 @@ import "../../assets/styles/styles.css";
 const ClientForm = () => {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
+  const [selectedPackage, setSelectedPackage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
 
-    const formData = new FormData();
-    formData.append("client[name]", e.target.name.value);
-    formData.append("client[phone]", e.target.phone.value);
-    formData.append("client[email]", e.target.email.value);
-    formData.append("client[icon]", e.target.icon.files[0]);
-
+    const data = {
+      company_name: e.target.elements.company_name.value,
+      username: e.target.elements.username.value,
+      email: e.target.elements.email.value,
+      phone: e.target.elements.phone.value,
+      social_link: e.target.elements.social_link.value,
+      package: selectedPackage,
+    };
     try {
-      const response = await axios.post(`${GENERAL_URL}/clients`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-
+      const response = await axios.post(
+        `${GENERAL_URL}/user_managements`,
+        data
+      );
       setIsLoading(false);
-      const { success, clients } = response.data;
+      const { success, userClients } = response.data;
 
       if (success) {
-        dispatch(addClient(clients));
+        dispatch(addClient(userClients));
       } else {
         alert("Error saving data. Please try again!");
       }
@@ -42,70 +43,171 @@ const ClientForm = () => {
       alert("Oops! Something went wrong. Please try again.");
     }
   };
-  return (
-    <form id="form-edt" onSubmit={handleSubmit}>
-      {isLoading ? <LoadingSpinner /> : null}
-      <h3 className="title">Add Client</h3>
-      <div className="form-group-client">
-        <label htmlFor="name" className="label-client">
-          Name
-        </label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          className="form-control-l"
-          required
-          placeholder="E.g. City Council"
-        />
-      </div>
 
-      <div className="form-group-client">
-        <label htmlFor="name" className="label-client">
-          Email
-        </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          className="form-control-l"
-          required
-          placeholder="E.g. abc@abc.com"
-        />
+  const handlePackageSelection = (event, selectedPackage) => {
+    event.preventDefault();
+    setSelectedPackage(selectedPackage);
+  };
+
+  return (
+    <form id="form-edt" onSubmit={handleSubmit} className="userAddForm">
+      {isLoading ? <LoadingSpinner /> : null}
+      <div className="iconPart">
+        <div className="form-group-client-header">
+          <h3 className="title-user">Choose User Package</h3>
+        </div>
+        <div className="form-group-user-packages">
+          <span
+            className={
+              selectedPackage === "basic"
+                ? "selected-user-packages"
+                : "user-packages"
+            }
+            onClick={(event) => handlePackageSelection(event, "basic")}
+          >
+            Basic
+          </span>
+          <span
+            className={
+              selectedPackage === "advanced"
+                ? "selected-user-packages"
+                : "user-packages"
+            }
+            onClick={(event) => handlePackageSelection(event, "advanced")}
+          >
+            Advanced
+          </span>
+          <span
+            className={
+              selectedPackage === "corporate"
+                ? "selected-user-packages"
+                : "user-packages"
+            }
+            onClick={(event) => handlePackageSelection(event, "corporate")}
+          >
+            Corporate
+          </span>
+          <span
+            className={
+              selectedPackage === "enterprise"
+                ? "selected-user-packages"
+                : "user-packages"
+            }
+            onClick={(event) => handlePackageSelection(event, "enterprise")}
+          >
+            Enterprise
+          </span>
+        </div>
+        <div className="form-group-client-header">
+          <h3 className="title-user">Accounts</h3>
+        </div>
+        <div className="form-group-user-packages">
+          <span className="user-accounts"></span>
+          <span className="user-accounts"></span>
+          <span className="user-accounts"></span>
+          <span className="user-accounts"></span>
+          <span className="user-accounts"></span>
+          <span className="user-accounts"></span>
+          <span className="user-accounts"></span>
+          <span className="user-accounts"></span>
+          <span className="user-accounts"></span>
+          <span className="user-accounts"></span>
+        </div>
       </div>
-      <div className="form-group-client">
-        <label htmlFor="name" className="label-client">
-          Phone
-        </label>
-        <input
-          type="phone"
-          id="phone"
-          name="phone"
-          className="form-control-l"
-          required
-          placeholder="E.g. +994123456789"
-        />
-      </div>
-      <div className="form-group-client">
-        <label htmlFor="name" className="label-client">
-          Icon
-        </label>
-        <input
-          type="file"
-          name="icon"
-          accept="image/*"
-          multiple={false}
-          className="form-control-l-icon"
-          required
-        />
-      </div>
-      <div className="form-group-push">
-        <input
-          type="submit"
-          value="Save"
-          className="form-control-btn-client"
-          disabled={isLoading}
-        />
+      <div className="userForm">
+        <div className="form-group-client-user">
+          <div className="formLabel">
+            <label htmlFor="name" className="label-client">
+              Company Name
+            </label>
+          </div>
+          <div className="formInputType">
+            <input
+              type="text"
+              id="company_name"
+              name="company_name"
+              className="form-control-l-user"
+              required
+            />
+          </div>
+        </div>
+
+        <div className="form-group-client-user">
+          <div className="formLabel">
+            <label htmlFor="username" className="label-client">
+              User Name
+            </label>
+          </div>
+          <div className="formInputType">
+            <input
+              type="text"
+              id="username"
+              name="username"
+              className="form-control-l-user"
+              required
+            />
+          </div>
+        </div>
+
+        <div className="form-group-client-user">
+          <div className="formLabel">
+            <label htmlFor="email" className="label-client">
+              Email
+            </label>
+          </div>
+          <div className="formInputType">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              className="form-control-l-user"
+              required
+            />
+          </div>
+        </div>
+        <div className="form-group-client-user">
+          <div className="formLabel">
+            <label htmlFor="phone" className="label-client">
+              Phone
+            </label>
+          </div>
+          <div className="formInputType">
+            <input
+              type="phone"
+              id="phone"
+              name="phone"
+              className="form-control-l-user"
+              required
+            />
+          </div>
+        </div>
+        <div className="form-group-client-user">
+          <div className="formLabel">
+            <label htmlFor="social_link" className="label-client">
+              Social Link
+            </label>
+          </div>
+          <div className="formInputType">
+            <input
+              type="text"
+              id="social_link"
+              name="social_link"
+              className="form-control-l-user"
+              required
+            />
+          </div>
+        </div>
+        <div className="form-group-client-user">
+          <div className="formLabel"></div>
+          <div className="formInputType">
+            <input
+              type="submit"
+              value="Add User"
+              className="form-control-btn-client"
+              disabled={isLoading}
+            />
+          </div>
+        </div>
       </div>
     </form>
   );

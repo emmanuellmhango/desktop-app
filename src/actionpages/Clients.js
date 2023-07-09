@@ -10,14 +10,13 @@ import "../assets/styles/styles.css";
 
 const Clients = () => {
   const dispatch = useDispatch();
-  const { clients } = useSelector((state) => state.clients);
 
   const fetchClients = async () => {
     try {
-      const response = await axios.get(`${GENERAL_URL}/clients`);
-      const { success, clients } = response.data;
+      const response = await axios.get(`${GENERAL_URL}/user_managements`);
+      const { success, userClients } = response.data;
       if (success) {
-        dispatch(addClient(clients));
+        dispatch(addClient(userClients));
       }
     } catch (error) {
       console.log(error);
@@ -33,12 +32,12 @@ const Clients = () => {
       <div className="sidebarMenu">
         <Sidebar />
       </div>
-      <div className="categoryBody">
+      <div className="usermanagementContainerBody">
         <div className="clientForm">
           <ClientForm />
         </div>
-        <div className="categoriesList">
-          <ClientList clients={clients} />
+        <div className="userManagementList">
+          <ClientList />
         </div>
       </div>
     </div>
