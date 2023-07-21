@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
+import { Routes, Route, HashRouter as Router } from "react-router-dom";
 import Login from "./startscreens/Login";
 import Home from "./startscreens/Home";
 import Dashboard from "./actionpages/Dashboard";
@@ -12,7 +12,7 @@ import IncomingClaims from "./actionpages/IncomingClaims";
 
 const App = () => {
   return (
-    <Router basename="/desktop-app">
+    <Router basename="/taget-app">
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/login" element={<Login />} />
