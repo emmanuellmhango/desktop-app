@@ -5,6 +5,8 @@ import CategoriesList from "./categories/CategoryList";
 import CategoryForm from "./categories/CategoryForm";
 import { addCategory } from "../state/categorySlice";
 import axios from "axios";
+import { fetchUserClients } from "./clients/fetchClients";
+import { addClient } from "../state/clientSlice";
 import { GENERAL_URL } from "../state/url";
 import "../assets/styles/styles.css";
 
@@ -23,6 +25,16 @@ const Categories = () => {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    const fetchUserClientData = async () => {
+      const clientData = await fetchUserClients();
+      dispatch(addClient(clientData));
+    };
+
+    fetchUserClientData();
+    return () => {};
+  }, [dispatch]);
 
   useEffect(() => {
     fetchCategories();

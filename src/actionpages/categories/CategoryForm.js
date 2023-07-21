@@ -31,8 +31,9 @@ const CategoryForm = () => {
     event.preventDefault();
     setIsLoading(true);
     const name = event.target.name.value;
+    const user_management_id = selectedClient.value;
     const icon = "";
-    const formData = { name, icon };
+    const formData = { name, icon, user_management_id };
     event.target.name.value = "";
     await axios
       .post(`${GENERAL_URL}/categories`, formData)

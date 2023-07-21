@@ -11,22 +11,6 @@ import "../assets/styles/styles.css";
 const Clients = () => {
   const dispatch = useDispatch();
 
-  const fetchClients = async () => {
-    try {
-      const response = await axios.get(`${GENERAL_URL}/user_managements`);
-      const { success, userClients } = response.data;
-      if (success) {
-        dispatch(addClient(userClients));
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    fetchClients();
-  }, []);
-
   return (
     <div className="dashboardMainDiv">
       <div className="sidebarMenu">

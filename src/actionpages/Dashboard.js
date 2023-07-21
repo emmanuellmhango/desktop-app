@@ -17,6 +17,7 @@ const Dashboard = () => {
     fetchClaimsData();
     return () => {};
   }, [dispatch]);
+
   return (
     <div className="dashboardMainDiv">
       <div className="sidebarMenu">

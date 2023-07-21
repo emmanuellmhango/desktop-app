@@ -25,7 +25,7 @@ const Main = () => {
     };
 
     fetchAllClients();
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     const fetchAllCategories = async () => {
@@ -34,7 +34,7 @@ const Main = () => {
     };
 
     fetchAllCategories();
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     const fetchData = async () => {

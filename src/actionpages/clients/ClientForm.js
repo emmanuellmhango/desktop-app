@@ -21,6 +21,7 @@ const ClientForm = () => {
       username: e.target.elements.username.value,
       email: e.target.elements.email.value,
       phone: e.target.elements.phone.value,
+      password: e.target.elements.password.value,
       social_link: e.target.elements.social_link.value,
       package: selectedPackage,
     };
