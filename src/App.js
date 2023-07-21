@@ -12,7 +12,7 @@ import IncomingClaims from "./actionpages/IncomingClaims";
 
 const App = () => {
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router basename="/desktop-app">
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/login" element={<Login />} />
