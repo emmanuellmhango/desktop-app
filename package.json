@@ -1,7 +1,7 @@
 {
   "name": "desktop-app",
   "version": "0.1.0",
-  "homepage": "https://emmanuellmhango.github.io/",
+  "homepage": "https://emmanuellmhango.github.io/desktop-app",
   "private": false,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
