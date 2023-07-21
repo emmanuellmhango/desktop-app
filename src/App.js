@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, HashRouter as Router } from "react-router-dom";
+import { Route, HashRouter } from "react-router-dom";
 import Login from "./startscreens/Login";
 import Home from "./startscreens/Home";
 import Dashboard from "./actionpages/Dashboard";
@@ -12,19 +12,17 @@ import IncomingClaims from "./actionpages/IncomingClaims";
 
 const App = () => {
   return (
-    <Router basename="/taget-app">
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/login" element={<Login />} />
-        <Route exact path="/dashboard" element={<Dashboard />} />
-        <Route exact path="/map" element={<Map />} />
-        <Route exact path="/claims" element={<Claims />} />
-        <Route exact path="/categories" element={<Categories />} />
-        <Route exact path="/clients" element={<Clients />} />
-        <Route exact path="/users" element={<UserManagement />} />
-        <Route exact path="/incoming-claims" element={<IncomingClaims />} />
-      </Routes>
-    </Router>
+    <HashRouter hashType="noslash" basename="/taget-app">
+      <Route exact path="/" element={<Home />} />
+      <Route exact path="/login" element={<Login />} />
+      <Route exact path="/dashboard" element={<Dashboard />} />
+      <Route exact path="/map" element={<Map />} />
+      <Route exact path="/claims" element={<Claims />} />
+      <Route exact path="/categories" element={<Categories />} />
+      <Route exact path="/clients" element={<Clients />} />
+      <Route exact path="/users" element={<UserManagement />} />
+      <Route exact path="/incoming-claims" element={<IncomingClaims />} />
+    </HashRouter>
   );
 };
 
