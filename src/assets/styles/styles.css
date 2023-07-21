@@ -754,20 +754,23 @@
 .gridWrapper {
   margin-top: 10px;
   width: 100%;
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(auto-fill, 170px);
-  justify-content: space-between;
+  display: flex;
   border-top: 1px solid #5e2bff;
+  align-items: center;
+  justify-content: space-between;
   padding-top: 10px;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .gridItem {
   background-color: #4060a9;
   color: #fff;
+  width: 100px;
   padding: 40px;
   cursor: pointer;
   text-align: center;
+  margin-bottom:10px;
 }
 
 .gridItem:hover {
@@ -905,7 +908,6 @@ th,td {
   border: none;
   border-radius: 25px;
   cursor: pointer;
-  padding: 5px;
 }
 
 .actionButtonForward:hover {
@@ -930,7 +932,7 @@ th,td {
 }
 
 .forwardIcon {
-  font-size: 1.5rem;
+  font-size: 18px;
 }
 
 .space-forward {

@@ -16,6 +16,7 @@ const Main = () => {
   const { appUsers } = useSelector((state) => state.appUsers);
   const { categories } = useSelector((state) => state.categories);
   const { clients } = useSelector((state) => state.clients);
+  const { claims } = useSelector((state) => state.claims);
   const [recentUsers, setRecentUsers] = useState(0);
 
   useEffect(() => {

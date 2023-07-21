@@ -135,7 +135,6 @@ const Incoming = () => {
               <th>Time</th>
               <th>Location</th>
               <th>Category</th>
-              <th>Client</th>
               <th>Comment</th>
               <th>Images</th>
               <th className="actionTD">Action</th>
@@ -151,9 +150,8 @@ const Incoming = () => {
                 >
                   <td>{claim.user_id}</td>
                   <td>{formatDateTime(claim.created_at)}</td>
-                  <td>{getLocale(claim.id)}</td>
+                  <td>{claim.geocode}</td>
                   <td>{claim.category.name}</td>
-                  <td>{claim.client.name}</td>
                   <td>{claim.comment}</td>
                   <td>Image 1, Image 2</td>
                   <td>
