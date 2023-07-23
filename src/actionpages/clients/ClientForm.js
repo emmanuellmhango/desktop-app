@@ -26,17 +26,21 @@ const ClientForm = () => {
       package: selectedPackage,
     };
     try {
-      const response = await axios.post(
-        `${GENERAL_URL}/user_managements`,
-        data
-      );
-      setIsLoading(false);
-      const { success, userClients } = response.data;
-
-      if (success) {
-        dispatch(addClient(userClients));
+      if (selectedPackage === "") {
+        alert("Please select a package");
       } else {
-        alert("Error saving data. Please try again!");
+        const response = await axios.post(
+          `${GENERAL_URL}/user_managements`,
+          data
+        );
+        setIsLoading(false);
+        const { success, userClients } = response.data;
+
+        if (success) {
+          dispatch(addClient(userClients));
+        } else {
+          alert("Error saving data. Please try again!");
+        }
       }
     } catch (error) {
       setIsLoading(false);

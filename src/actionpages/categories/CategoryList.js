@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { MdDeleteOutline } from "react-icons/md";
 import axios from "axios";
 import { GENERAL_URL } from "../../state/url";
@@ -7,9 +7,10 @@ import { deleteCategory } from "../../state/categorySlice";
 import LoadingSpinner from "../../startscreens/Spinner";
 import "../../assets/styles/styles.css";
 
-const CategoriesList = ({ categories }) => {
+const CategoriesList = () => {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
+  const { categories } = useSelector((state) => state.categories);
 
   const deleteItem = async (id) => {
     setIsLoading(true);

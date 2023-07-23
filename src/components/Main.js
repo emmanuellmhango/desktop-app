@@ -4,8 +4,6 @@ import { NavLink } from "react-router-dom";
 import { fetchUsers } from "../actionpages/fetchUsers";
 import { addAppUsers } from "../state/appUsers";
 import { addCategory } from "../state/categorySlice";
-import { addClient } from "../state/clientSlice";
-import { fetchClients } from "../actionpages/fetchClients";
 import Chart from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 import { fetchCategories } from "../actionpages/fetchCategories";
@@ -18,15 +16,60 @@ const Main = () => {
   const { clients } = useSelector((state) => state.clients);
   const { claims } = useSelector((state) => state.claims);
   const [recentUsers, setRecentUsers] = useState(0);
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
 
-  useEffect(() => {
-    const fetchAllClients = async () => {
-      const response = await fetchClients();
-      dispatch(addClient(response));
-    };
+  const customMonthOrder = (month) => {
+    return months.indexOf(month);
+  };
 
-    fetchAllClients();
-  }, [dispatch]);
+  const claimDataForGraph = () => {
+    const counters = [];
+    const currentYr = new Date().getFullYear();
+
+    claims.forEach((claim) => {
+      const claim_date = new Date(claim.created_at);
+      const claim_year = claim_date.getFullYear();
+      const claim_month = claim_date.getMonth();
+
+      if (claim_year === currentYr) {
+        const existingCounter = counters.find(
+          (item) => item.month === months[claim_month]
+        );
+
+        if (existingCounter) {
+          existingCounter.counter += 1;
+        } else {
+          counters.push({ month: months[claim_month], counter: 1 });
+        }
+      }
+    });
+
+    months.forEach((month) => {
+      const getc = counters.find((item) => item.month === month);
+      if (!getc) {
+        counters.push({ month: month, counter: 0 });
+      }
+    });
+
+    const claimsforGraph = counters.sort(
+      (a, b) => customMonthOrder(a.month) - customMonthOrder(b.month)
+    );
+
+    return claimsforGraph;
+  };
 
   useEffect(() => {
     const fetchAllCategories = async () => {
@@ -67,7 +110,7 @@ const Main = () => {
     setRecentUsers(total);
   };
 
-  const labels = ["January", "February", "March", "April", "May", "June"];
+  const labels = ["", ...claimDataForGraph(claims).map((item) => item.month)];
 
   const data = {
     labels: labels,
@@ -76,7 +119,7 @@ const Main = () => {
         label: "Claims",
         backgroundColor: "rgb(255, 99, 132)",
         borderColor: "rgb(255, 99, 132)",
-        data: [0, 10, 5, 2, 20, 30, 45],
+        data: [0, ...claimDataForGraph(claims).map((item) => item.counter)],
       },
     ],
   };
