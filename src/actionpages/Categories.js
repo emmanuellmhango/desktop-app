@@ -7,15 +7,18 @@ import "../assets/styles/styles.css";
 const Categories = () => {
   return (
     <div className="dashboardMainDiv">
-      <div className="sidebarMenu">
-        <Sidebar />
-      </div>
-      <div className="categoryBody">
-        <div className="categoryForm">
-          <CategoryForm />
+      <div className="headingSpace"></div>
+      <div className="allContent">
+        <div className="sidebarMenu">
+          <Sidebar />
         </div>
-        <div className="categoriesList">
-          <CategoriesList />
+        <div className="categoryBody">
+          <div className="categoryForm">
+            <CategoryForm />
+          </div>
+          <div className="categoriesList">
+            <CategoriesList />
+          </div>
         </div>
       </div>
     </div>

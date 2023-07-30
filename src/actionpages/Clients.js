@@ -7,15 +7,18 @@ import "../assets/styles/styles.css";
 const Clients = () => {
   return (
     <div className="dashboardMainDiv">
-      <div className="sidebarMenu">
-        <Sidebar />
-      </div>
-      <div className="usermanagementContainerBody">
-        <div className="clientForm">
-          <ClientForm />
+      <div className="headingSpace"></div>
+      <div className="allContent">
+        <div className="sidebarMenu">
+          <Sidebar />
         </div>
-        <div className="userManagementList">
-          <ClientList />
+        <div className="usermanagementContainerBody">
+          <div className="clientForm">
+            <ClientForm />
+          </div>
+          <div className="userManagementList">
+            <ClientList />
+          </div>
         </div>
       </div>
     </div>
