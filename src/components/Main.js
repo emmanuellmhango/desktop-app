@@ -147,7 +147,7 @@ const Main = () => {
     labels: labels,
     datasets: [
       {
-        label: "Weekly Claims",
+        label: "Claims",
         backgroundColor: "rgb(94, 43, 255)",
         borderColor: "rgb(94, 43, 255)",
         data: [0, ...dataSetData],
