@@ -16,6 +16,7 @@ const Main = () => {
   const { clients } = useSelector((state) => state.clients);
   const { claims } = useSelector((state) => state.claims);
   const [recentUsers, setRecentUsers] = useState(0);
+  const [recentClients, setRecentClients] = useState(0);
   const months = [
     "January",
     "February",
@@ -90,6 +91,10 @@ const Main = () => {
     newUsers(appUsers);
   }, []);
 
+  useEffect(() => {
+    newClients(clients);
+  }, []);
+
   const newUsers = (users) => {
     const today = new Date();
     const startOfDay = new Date(
@@ -110,16 +115,42 @@ const Main = () => {
     setRecentUsers(total);
   };
 
-  const labels = ["", ...claimDataForGraph(claims).map((item) => item.month)];
+  const newClients = (clients) => {
+    const today = new Date();
+    const startOfDay = new Date(
+      today.getFullYear(),
+      today.getMonth(),
+      today.getDate()
+    );
+    const endOfDay = new Date(
+      today.getFullYear(),
+      today.getMonth(),
+      today.getDate() + 1
+    );
+
+    const total = clients.filter((user) => {
+      const createdAt = new Date(user.created_at);
+      return createdAt >= startOfDay && createdAt < endOfDay;
+    }).length;
+    setRecentClients(total);
+  };
+
+  const labelData = claims
+    ? claimDataForGraph(claims).map((item) => item.month)
+    : [...months];
+  const labels = ["", ...labelData];
+  const dataSetData = claims
+    ? claimDataForGraph(claims).map((item) => item.counter)
+    : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
   const data = {
     labels: labels,
     datasets: [
       {
-        label: "Claims",
-        backgroundColor: "rgb(255, 99, 132)",
-        borderColor: "rgb(255, 99, 132)",
-        data: [0, ...claimDataForGraph(claims).map((item) => item.counter)],
+        label: "Weekly Claims",
+        backgroundColor: "rgb(94, 43, 255)",
+        borderColor: "rgb(94, 43, 255)",
+        data: [0, ...dataSetData],
       },
     ],
   };
@@ -127,11 +158,7 @@ const Main = () => {
   return (
     <div className="dashboardAnalytics">
       <div className="analyticsChartContainer">
-        <div className="analyticsChartTable">
-          <Line data={data} />
-        </div>
-
-        <div className="gridWrapper">
+        <div className="headerMenuContainer">
           <div className="gridItem">
             <span className="analyticsHeaderItemText">New Users</span>
             <br />
@@ -139,34 +166,54 @@ const Main = () => {
               {recentUsers ? recentUsers : 0}
             </span>
           </div>
+          <div className="gridItem2">
+            <div classname="gridItem2Container">
+              <span className="analyticsHeaderItemText">New Claims</span>
+              <br />
+              <span className="analyticsHeaderItemNumber">
+                {appUsers ? appUsers.length : 0}
+              </span>
+              <div className="test">
+                <span className="reports-seven-days">Reports of 7 days</span>
+              </div>
+            </div>
+          </div>
           <div className="gridItem">
-            <span className="analyticsHeaderItemText">All Users</span>
+            <span className="analyticsHeaderItemText">New Clients</span>
+            <br />
+            <span className="analyticsHeaderItemNumber">
+              {recentClients ? recentClients : 0}
+            </span>
+          </div>
+        </div>
+        <div className="analyticsChartTable">
+          <Line data={data} />
+        </div>
+        <div className="headerMenuContainer">
+          <div className="gridItem">
+            <span className="analyticsHeaderItemText">Total Users</span>
             <br />
             <span className="analyticsHeaderItemNumber">
               {appUsers ? appUsers.length : 0}
             </span>
           </div>
           <div className="gridItem">
-            <span className="analyticsHeaderItemText">New Claims</span>
+            <span className="analyticsHeaderItemText">Total Claims</span>
             <br />
             <span className="analyticsHeaderItemNumber">
               {appUsers ? appUsers.length : 0}
             </span>
           </div>
           <div className="gridItem">
-            <span className="analyticsHeaderItemText">All Claims</span>
-            <br />
-            <span className="analyticsHeaderItemNumber">
-              {appUsers ? appUsers.length : 0}
-            </span>
-          </div>
-          <div className="gridItem">
-            <span className="analyticsHeaderItemText">Clients</span>
+            <span className="analyticsHeaderItemText">Total Clients</span>
             <br />
             <span className="analyticsHeaderItemNumber">
               {clients ? clients.length : 0}
             </span>
           </div>
+        </div>
+
+        {/* 
           <NavLink to="/categories" className="dashboardMenuListLink">
             <div className="gridItem">
               <span className="analyticsHeaderItemText">Categories</span>
@@ -176,7 +223,7 @@ const Main = () => {
               </span>
             </div>
           </NavLink>
-        </div>
+        </div> */}
       </div>
     </div>
   );

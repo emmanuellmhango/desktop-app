@@ -166,8 +166,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 15vw;
-  height: 100vh;
+  width: 15%;
+  height: 100%;
   background-color: #4060a9;
 }
 
@@ -625,8 +625,22 @@
   align-items: center;
   justify-content: center;
   width: 85%;
-  height: 100vh;
+  height: 100%;
   background-color: #f5f5f5;
+}
+
+.headerMenuContainer {
+  margin-bottom: 10px;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  background-color: #5e2bff;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  border-radius: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .claimsContentBody {
@@ -639,14 +653,28 @@
   background-color: #fff;
 }
 
+.headingSpace {
+  height: 8%;
+}
+
 .dashboardMainDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.allContent {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   width: 100vw;
-  height: 100vh;
-  background-color: #f5f5f5;
+  height: 92%;
+  background-color: red;
+  border-top: 2px solid #000
 }
 
 .dashboardMenu {
@@ -717,6 +745,45 @@
   background-color: #5e2bff;
 }
 
+.gridItem2Container {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+}
+
+.test {
+  z-index: 99898989;
+  position: absolute;
+  width: 30%;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-top: 50px solid #5e2bff;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reports-seven-days {
+  color: #5e2bff;
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 3px 30px;
+  font-size: 12px;
+  text-align: center;
+  z-index: 567;
+  top: -40px;
+  position: relative;
+  font-weight: 500;
+}
+
+.dashboardHeading {
+  font-size: 38px;
+  font-weight: 600;
+  align-self: flex-start;
+  padding: 0 0 10px 30px;
+}
+
 .dashboardAnalytics {
   width: 100%;
   height: 100%;
@@ -763,11 +830,18 @@
   flex-wrap: wrap;
 }
 
-.gridItem {
-  background-color: #4060a9;
+.gridItem2 {
+  font-size: 19px;
   color: #fff;
-  width: 100px;
-  padding: 40px;
+  cursor: pointer;
+  text-align: center;
+  margin-bottom:10px;
+  width: 50%;
+}
+
+.gridItem {
+  font-size: 19px;
+  color: #fff;
   cursor: pointer;
   text-align: center;
   margin-bottom:10px;

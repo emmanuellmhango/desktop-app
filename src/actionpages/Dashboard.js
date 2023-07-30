@@ -45,11 +45,15 @@ const Dashboard = () => {
 
   return (
     <div className="dashboardMainDiv">
-      <div className="sidebarMenu">
-        <Sidebar />
-      </div>
-      <div className="contentBody">
-        <Main />
+      <div className="headingSpace"></div>
+      <div className="allContent">
+        <div className="sidebarMenu">
+          <Sidebar />
+        </div>
+        <div className="contentBody">
+          <div className="dashboardHeading">Dashboard Analytics</div>
+          <Main />
+        </div>
       </div>
     </div>
   );
