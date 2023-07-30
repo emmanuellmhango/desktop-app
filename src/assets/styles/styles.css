@@ -226,6 +226,10 @@
   border-radius: 25px;
 }
 
+.analyticsChartTable {
+  height: 80%;
+}
+
 .usermanagementContainerBody {
   display: flex;
   flex-direction: column;
