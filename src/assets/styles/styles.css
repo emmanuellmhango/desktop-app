@@ -492,7 +492,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 99%;
+  width: 98%;
 }
 
 .headerIconList {
@@ -525,8 +525,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  width: 100%;
-  height: 80%;
+  width: 98%;
+  height: 78%;
   margin: 0 10px 0 0;
 }
 
