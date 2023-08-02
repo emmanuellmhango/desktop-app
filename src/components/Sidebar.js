@@ -1,5 +1,5 @@
-import React from "react";
-import { useNavigate, NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate, NavLink, useLocation } from "react-router-dom";
 import {
   TbDeviceAnalytics,
   TbMap2,
@@ -9,11 +9,17 @@ import {
 } from "react-icons/tb";
 import { BsPhoneFlip } from "react-icons/bs";
 import { TiBusinessCard } from "react-icons/ti";
-
+import Logo from "../assets/images/logo.png";
 import "../assets/styles/styles.css";
 
 const Sidebar = () => {
   const navigate = useNavigate();
+  const [active, setActive] = useState(false);
+  const location = useLocation();
+
+  const isNavLinkActive = (path) => {
+    return location.pathname === path;
+  };
 
   const handleLogout = (event) => {
     event.preventDefault();
@@ -23,8 +29,20 @@ const Sidebar = () => {
     <>
       <div className="dashboardMenu">
         <ul className="dashboardMenuListSB">
+          <li className="dashboardMenuListItemLogo">
+            <div className="logoimage">
+              <img src={Logo} alt="Logo" className="headerLogo" />
+            </div>
+          </li>
+          <li>&nbsp;</li>
           <NavLink to="/dashboard" className="dashboardMenuListLink">
-            <li className="dashboardMenuListItem">
+            <li
+              className={
+                isNavLinkActive("/dashboard")
+                  ? "selectedLinkActive"
+                  : "dashboardMenuListItem"
+              }
+            >
               <div className="sidebarMenuSide">
                 <TbDeviceAnalytics color="white" className="sidebarMenuM" />
                 <span className="padLeft">Dashboard</span>
@@ -32,7 +50,13 @@ const Sidebar = () => {
             </li>
           </NavLink>
           <NavLink to="/map" className="dashboardMenuListLink">
-            <li className="dashboardMenuListItem">
+            <li
+              className={
+                isNavLinkActive("/map")
+                  ? "selectedLinkActive"
+                  : "dashboardMenuListItem"
+              }
+            >
               <div className="sidebarMenuSide">
                 <TbMap2 color="white" className="sidebarMenuM" />
                 <span className="padLeft">Map</span>
@@ -40,7 +64,13 @@ const Sidebar = () => {
             </li>
           </NavLink>
           <NavLink to="/incoming-claims" className="dashboardMenuListLink">
-            <li className="dashboardMenuListItem">
+            <li
+              className={
+                isNavLinkActive("/incoming-claims")
+                  ? "selectedLinkActive"
+                  : "dashboardMenuListItem"
+              }
+            >
               <div className="sidebarMenuSide">
                 <TbIrregularPolyhedronPlus
                   color="white"
@@ -51,7 +81,13 @@ const Sidebar = () => {
             </li>
           </NavLink>
           <NavLink to="/claims" className="dashboardMenuListLink">
-            <li className="dashboardMenuListItem">
+            <li
+              className={
+                isNavLinkActive("/claims")
+                  ? "selectedLinkActive"
+                  : "dashboardMenuListItem"
+              }
+            >
               <div className="sidebarMenuSide">
                 <TbIrregularPolyhedron color="white" className="sidebarMenuM" />
                 <span className="padLeft">All Claims</span>
@@ -59,7 +95,13 @@ const Sidebar = () => {
             </li>
           </NavLink>
           <NavLink to="/clients" className="dashboardMenuListLink">
-            <li className="dashboardMenuListItem">
+            <li
+              className={
+                isNavLinkActive("/clients")
+                  ? "selectedLinkActive"
+                  : "dashboardMenuListItem"
+              }
+            >
               <div className="sidebarMenuSide">
                 <TiBusinessCard color="white" className="sidebarMenuM" />
                 <span className="padLeft">Client Management</span>
@@ -67,7 +109,13 @@ const Sidebar = () => {
             </li>
           </NavLink>
           <NavLink to="/categories" className="dashboardMenuListLink">
-            <li className="dashboardMenuListItem">
+            <li
+              className={
+                isNavLinkActive("/categories")
+                  ? "selectedLinkActive"
+                  : "dashboardMenuListItem"
+              }
+            >
               <div className="sidebarMenuSide">
                 <TbCategory2 color="white" className="sidebarMenuM" />
                 <span className="padLeft">Categories</span>
@@ -75,7 +123,13 @@ const Sidebar = () => {
             </li>
           </NavLink>
           <NavLink to="/users" className="dashboardMenuListLink">
-            <li className="dashboardMenuListItem">
+            <li
+              className={
+                isNavLinkActive("/users")
+                  ? "selectedLinkActive"
+                  : "dashboardMenuListItem"
+              }
+            >
               <div className="sidebarMenuSide">
                 <BsPhoneFlip color="white" className="sidebarMenuM" />
                 <span className="padLeft">Mobile Users</span>
