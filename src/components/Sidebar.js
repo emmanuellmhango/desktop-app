@@ -1,5 +1,14 @@
 import React from "react";
 import { useNavigate, NavLink } from "react-router-dom";
+import {
+  TbDeviceAnalytics,
+  TbMap2,
+  TbIrregularPolyhedronPlus,
+  TbIrregularPolyhedron,
+  TbCategory2,
+} from "react-icons/tb";
+import { BsPhoneFlip } from "react-icons/bs";
+import { TiBusinessCard } from "react-icons/ti";
 
 import "../assets/styles/styles.css";
 
@@ -15,25 +24,63 @@ const Sidebar = () => {
       <div className="dashboardMenu">
         <ul className="dashboardMenuListSB">
           <NavLink to="/dashboard" className="dashboardMenuListLink">
-            <li className="dashboardMenuListItem">Dashboard</li>
+            <li className="dashboardMenuListItem">
+              <div className="sidebarMenuSide">
+                <TbDeviceAnalytics color="white" className="sidebarMenuM" />
+                <span className="padLeft">Dashboard</span>
+              </div>
+            </li>
           </NavLink>
           <NavLink to="/map" className="dashboardMenuListLink">
-            <li className="dashboardMenuListItem">Map</li>
-          </NavLink>
-          <NavLink to="/claims" className="dashboardMenuListLink">
-            <li className="dashboardMenuListItem">All Claims</li>
+            <li className="dashboardMenuListItem">
+              <div className="sidebarMenuSide">
+                <TbMap2 color="white" className="sidebarMenuM" />
+                <span className="padLeft">Map</span>
+              </div>
+            </li>
           </NavLink>
           <NavLink to="/incoming-claims" className="dashboardMenuListLink">
-            <li className="dashboardMenuListItem">Incoming Claims</li>
+            <li className="dashboardMenuListItem">
+              <div className="sidebarMenuSide">
+                <TbIrregularPolyhedronPlus
+                  color="white"
+                  className="sidebarMenuM"
+                />
+                <span className="padLeft">Incoming Claims</span>
+              </div>
+            </li>
+          </NavLink>
+          <NavLink to="/claims" className="dashboardMenuListLink">
+            <li className="dashboardMenuListItem">
+              <div className="sidebarMenuSide">
+                <TbIrregularPolyhedron color="white" className="sidebarMenuM" />
+                <span className="padLeft">All Claims</span>
+              </div>
+            </li>
           </NavLink>
           <NavLink to="/clients" className="dashboardMenuListLink">
-            <li className="dashboardMenuListItem">Client Management</li>
+            <li className="dashboardMenuListItem">
+              <div className="sidebarMenuSide">
+                <TiBusinessCard color="white" className="sidebarMenuM" />
+                <span className="padLeft">Client Management</span>
+              </div>
+            </li>
           </NavLink>
           <NavLink to="/categories" className="dashboardMenuListLink">
-            <li className="dashboardMenuListItem">Categories</li>
+            <li className="dashboardMenuListItem">
+              <div className="sidebarMenuSide">
+                <TbCategory2 color="white" className="sidebarMenuM" />
+                <span className="padLeft">Categories</span>
+              </div>
+            </li>
           </NavLink>
           <NavLink to="/users" className="dashboardMenuListLink">
-            <li className="dashboardMenuListItem">Mobile Users</li>
+            <li className="dashboardMenuListItem">
+              <div className="sidebarMenuSide">
+                <BsPhoneFlip color="white" className="sidebarMenuM" />
+                <span className="padLeft">Mobile Users</span>
+              </div>
+            </li>
           </NavLink>
         </ul>
         <div className="logoutButtonDiv">

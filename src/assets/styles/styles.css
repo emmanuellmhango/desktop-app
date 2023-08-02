@@ -180,6 +180,13 @@
   transition: border-color 0.2s ease-in-out;
 }
 
+.sidebarMenuSide {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
 .loginForm {
   display: flex;
   flex-direction: column;
@@ -196,6 +203,10 @@
   width: 15%;
   height: 100%;
   background-color: #4060a9;
+}
+
+.padLeft {
+  padding-left: 10px;
 }
 
 .form-group-user-packages {
@@ -809,6 +820,10 @@
   justify-content: center;
   width: 90vw;
   height: 90vh;
+}
+
+.sidebarMenuM {
+  font-size: 20px;
 }
 
 .allContent {
