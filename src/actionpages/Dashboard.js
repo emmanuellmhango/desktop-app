@@ -8,6 +8,7 @@ import { addClient } from "../state/clientSlice";
 import { fetchUserClients } from "./clients/fetchClients";
 import { fetchCategories } from "./categories/fetchCategories";
 import { addCategory } from "../state/categorySlice";
+import Logo from "../assets/images/logo.png";
 import "../assets/styles/styles.css";
 
 const Dashboard = () => {
@@ -44,15 +45,24 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="dashboardMainDiv">
-      <div className="headingSpace"></div>
-      <div className="allContent">
-        <div className="sidebarMenu">
-          <Sidebar />
+    <div className="dashboardMainDiv1">
+      <div className="dashboardMainDiv">
+        <div className="headingSpace">
+          <div className="innerSpace">
+            <div className="logoimage">
+              <img src={Logo} alt="Logo" className="headerLogo" />
+            </div>
+            <div className="headingTitle">TAGET DASHBOARD</div>
+          </div>
         </div>
-        <div className="contentBody">
-          <div className="dashboardHeading">Dashboard Analytics</div>
-          <Main />
+        <div className="allContent">
+          <div className="sidebarMenu">
+            <Sidebar />
+          </div>
+          <div className="contentBody">
+            <div className="dashboardHeading">Dashboard Analytics</div>
+            <Main />
+          </div>
         </div>
       </div>
     </div>

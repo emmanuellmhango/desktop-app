@@ -5,7 +5,7 @@ import Sidebar from "../components/Sidebar";
 import { addSelectedClaim } from "../state/selectedClaimSlice";
 import ClaimLocations from "./map/ClaimLocations";
 import ClaimMapDisplay from "./map/ClaimMapDisplay";
-import { ImListNumbered } from "react-icons/im";
+import { FiMenu } from "react-icons/fi";
 
 const Map = () => {
   const dispatch = useDispatch();
@@ -48,35 +48,34 @@ const Map = () => {
   }, [dispatch, selectedClaim]);
 
   return (
-    <div className="dashboardMainDiv">
-      <div className="headingSpace"></div>
-      <div className="allContent">
-        <div className="sidebarMenu">
-          <Sidebar />
-        </div>
-        <div className="claimsBody">
-          <div className="mapTitle">
-            <div className="claimsListHeader">
-              <span>
-                <h3 className="title">Map</h3>
-              </span>
-              <span>
-                <NavLink to="/claims">
-                  <ImListNumbered
-                    className="headerIconMap"
-                    title="View as List"
-                  />
-                </NavLink>
-              </span>
-            </div>
+    <div className="dashboardMainDiv1">
+      <div className="dashboardMainDiv">
+        <div className="headingSpace"></div>
+        <div className="allContent">
+          <div className="sidebarMenu">
+            <Sidebar />
           </div>
-
-          <div className="mapItems">
-            <div className="ClaimsForm">
-              <ClaimLocations />
+          <div className="claimsBody">
+            <div className="mapTitle">
+              <div className="claimsListHeader">
+                <span>
+                  <span className="cattitle">Claim Map</span>
+                </span>
+                <span>
+                  <NavLink to="/claims">
+                    <FiMenu className="headerIconMap" title="View as List" />
+                  </NavLink>
+                </span>
+              </div>
             </div>
-            <div className="claimsListContainer">
-              <ClaimMapDisplay />
+
+            <div className="mapItems">
+              <div className="ClaimsFormM">
+                <ClaimLocations />
+              </div>
+              <div className="claimsListContainer">
+                <ClaimMapDisplay />
+              </div>
             </div>
           </div>
         </div>

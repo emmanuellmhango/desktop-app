@@ -21,15 +21,17 @@ const UserManagement = () => {
   }, []);
 
   return (
-    <div className="dashboardMainDiv">
-      <div className="headingSpace"></div>
-      <div className="allContent">
-        <div className="sidebarMenu">
-          <Sidebar />
-        </div>
-        <div className="categoryBody">
-          <div className="app-users-list">
-            <AppUsers appUsers={appUsers} />
+    <div className="dashboardMainDiv1">
+      <div className="dashboardMainDiv">
+        <div className="headingSpace"></div>
+        <div className="allContent">
+          <div className="sidebarMenu">
+            <Sidebar />
+          </div>
+          <div className="categoryBodyus">
+            <div className="app-users-listus">
+              <AppUsers appUsers={appUsers} />
+            </div>
           </div>
         </div>
       </div>

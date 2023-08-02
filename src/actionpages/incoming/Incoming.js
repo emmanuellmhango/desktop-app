@@ -7,59 +7,42 @@ import { FcGlobe } from "react-icons/fc";
 import { PiArrowBendDoubleUpRightBold } from "react-icons/pi";
 import { MdDeleteForever } from "react-icons/md";
 import { NavLink } from "react-router-dom";
-import LoadingSpinner from "../../startscreens/Spinner";
-import { reverseGeoCode } from "../claims/reverseGeoCoding";
+import ReactPaginate from "react-paginate";
+import blurImage from "../../assets/images/holder.jpg";
 import "../../assets/styles/styles.css";
 
 const Incoming = () => {
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(false);
-  const [geoCodes, setGeoCodes] = useState([]);
   const [incomingClaims, setIncomingClaims] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
+  const itemsPerPage = 5;
   const { claims } = useSelector((state) => state.claims);
 
   useEffect(() => {
     const fetchIncomingClaims = async () => {
-      const filteredClaims = claims.filter(
+      const filteredClaims = await claims.filter(
         (claim) => claim.forwarded === "false"
       );
 
-      const sortedClaims = filteredClaims.sort(
+      const sortedClaims = await filteredClaims.sort(
         (a, b) => new Date(b.created_at) - new Date(a.created_at)
       );
 
       setIncomingClaims(sortedClaims);
+      setTotalPages(Math.ceil(sortedClaims.length / itemsPerPage));
     };
 
     fetchIncomingClaims();
   }, []);
 
-  useEffect(() => {
-    const fetchGeoData = async () => {
-      setGeoCodes([]);
-      claims.map(async (claim, index) => {
-        if (
-          (claim.location && claim.location !== null) ||
-          claim.location !== "null"
-        ) {
-          const conv = JSON.parse(claim.location);
-          if (conv === null) return;
-          if (conv !== null) {
-            setIsLoading(true);
-            const res = await reverseGeoCode(conv);
-            setIsLoading(false);
-            setGeoCodes((geoCodes) => [
-              ...geoCodes,
-              { claim_id: claim.id, location: res },
-            ]);
-          }
-        }
-      });
-    };
+  const startIndex = currentPage * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const subset = incomingClaims.slice(startIndex, endIndex);
 
-    fetchGeoData();
-    return () => {};
-  }, []);
+  const handlePageChange = (selectedPage) => {
+    setCurrentPage(selectedPage.selected);
+  };
 
   const rejectClaim = async (event, claim_id) => {
     event.preventDefault();
@@ -86,14 +69,6 @@ const Incoming = () => {
     }
   };
 
-  const getLocale = (id) => {
-    const locale = geoCodes.find((geoCode) => geoCode.claim_id === id);
-    if (locale) {
-      return locale.location;
-    }
-    return "na";
-  };
-
   function formatDateTime(dateTimeString) {
     const options = {
       dateStyle: "short",
@@ -114,9 +89,16 @@ const Incoming = () => {
     alert(claim.id);
   };
 
+  // Helper function to handle image load
+  const handleImageLoad = (claimId) => {
+    const updatedClaims = incomingClaims.map((claim) =>
+      claim.id === claimId ? { ...claim, imageLoaded: true } : claim
+    );
+    setIncomingClaims(updatedClaims);
+  };
+
   return (
     <div className="ClaimsList">
-      {isLoading ? <LoadingSpinner /> : null}
       <div className="claimsListHeader">
         <span>
           <h3 className="title">Incoming Claims</h3>
@@ -131,29 +113,41 @@ const Incoming = () => {
         <table className="table">
           <thead className="tableHeader">
             <tr>
-              <th className="userCounter">User ID</th>
-              <th>Time</th>
+              <th className="userCounter">#</th>
+              <th className="normalspace">Time</th>
               <th>Location</th>
-              <th>Category</th>
+              <th className="normalspace">Category</th>
               <th>Comment</th>
-              <th>Images</th>
+              <th className="imagesSpace">Images</th>
               <th className="actionTD">Action</th>
             </tr>
           </thead>
           <tbody className="tableBody">
-            {incomingClaims &&
-              incomingClaims.map((claim, index) => (
+            {subset &&
+              subset.map((claim, index) => (
                 <tr
                   className="tableRow"
                   key={index}
                   onClick={(event) => goToMap(event, claim.id)}
                 >
-                  <td>{claim.user_id}</td>
+                  <td>{currentPage * itemsPerPage + index + 1}</td>
                   <td>{formatDateTime(claim.created_at)}</td>
                   <td>{claim.geocode}</td>
                   <td>{claim.category.name}</td>
                   <td>{claim.comment}</td>
-                  <td>Image 1, Image 2</td>
+                  <td>
+                    <div className="imagesCounter">
+                      {claim.images.map((image, imageIndex) => (
+                        <img
+                          src={claim.imageLoaded ? image : blurImage}
+                          alt="claim"
+                          key={imageIndex}
+                          className="claimimageDisplay"
+                          onLoad={() => handleImageLoad(claim.id)}
+                        />
+                      ))}
+                    </div>
+                  </td>
                   <td>
                     {claim.forwarded === "false" && (
                       <div className="actions">
@@ -164,7 +158,7 @@ const Incoming = () => {
                           <MdDeleteForever className="forwardIcon" />
                         </button>
                         <button
-                          className="actionButtonForward"
+                          className="actionButtonForward space-forward"
                           onClick={(event) => forwardClaim(event, claim)}
                         >
                           <PiArrowBendDoubleUpRightBold className="forwardIcon" />
@@ -176,6 +170,17 @@ const Incoming = () => {
               ))}
           </tbody>
         </table>
+        <ReactPaginate
+          pageCount={totalPages}
+          onPageChange={handlePageChange}
+          forcePage={currentPage}
+          previousLabel={"Prev"}
+          nextLabel={"Next"}
+          containerClassName={"pagination"}
+          activeClassName={"pagination-active"}
+          pageClassName={"pagination-break"}
+          previousClassName={"pagination-previous"}
+        />
       </div>
     </div>
   );

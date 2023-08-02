@@ -31,21 +31,31 @@ const AppUsers = ({ appUsers }) => {
         <h3 className="title">App Users</h3>
       </div>
       <div className="categoriesListBody">
-        {appUsers &&
-          appUsers.map((appUser, index) => (
-            <div className="categoryItem" key={index}>
-              <div className="clientItemName">{appUser.name}</div>
-              <div className="categoryItemName">{appUser.email}</div>
-              <div className="categoryItemName">{appUser.phone}</div>
-              <div className="categoryItemDeleted">
-                <MdDeleteOutline
-                  className="delete-icon"
-                  disabled={isLoading}
-                  onClick={() => deleteItem(appUser.id)}
-                />
-              </div>
-            </div>
-          ))}
+        <table className="table">
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th className="userCounter"></th>
+          </tr>
+          <tbody>
+            {appUsers &&
+              appUsers.map((appUser, index) => (
+                <tr className="tableRow" key={index}>
+                  <td className="clientItemName">{appUser.name}</td>
+                  <td className="categoryItemName">{appUser.email}</td>
+                  <td className="categoryItemName">{appUser.phone}</td>
+                  <td>
+                    <MdDeleteOutline
+                      className="delete-icon"
+                      disabled={isLoading}
+                      onClick={() => deleteItem(appUser.id)}
+                    />
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

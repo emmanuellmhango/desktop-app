@@ -31,31 +31,39 @@ const CategoryForm = () => {
     event.preventDefault();
     setIsLoading(true);
     const name = event.target.name.value;
-    const user_management_id = selectedClient.value;
-    const icon = "";
-    const formData = { name, icon, user_management_id };
+    const iconFile = event.target.icon.files[0];
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("client_id", selectedClient);
+    formData.append("icon", iconFile);
+
     event.target.name.value = "";
-    await axios
-      .post(`${GENERAL_URL}/categories`, formData)
-      .then((response) => {
-        setIsLoading(false);
-        const { success, categories } = response.data;
-        if (success) {
-          dispatch(addCategory(categories));
-        } else {
-          alert(`Error saving data, Please try again!!`);
-        }
-      })
-      .catch((error) => {
-        setIsLoading(false);
-        console.log(error);
-        alert("Oops! Something went wrong, please try again");
+    event.target.icon.value = null;
+
+    try {
+      const response = await axios.post(`${GENERAL_URL}/categories`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
       });
+      setIsLoading(false);
+      const { success, categories } = response.data;
+      if (success) {
+        dispatch(addCategory(categories));
+      } else {
+        alert(`Error saving data, Please try again!!`);
+      }
+    } catch (error) {
+      setIsLoading(false);
+      console.log(error);
+      alert("Oops! Something went wrong, please try again");
+    }
   };
   return (
     <form id="form-edt" onSubmit={handleSubmit}>
       {isLoading ? <LoadingSpinner /> : null}
-      <h3 className="title">Add Category</h3>
+      <span className="cattitle">Add Category</span>
+      <br />
       <div className="form-group-select">
         <label htmlFor="name" className="label-client">
           Category Name
@@ -64,9 +72,22 @@ const CategoryForm = () => {
           type="text"
           id="name"
           name="name"
-          className="form-control-l-input"
+          className="form-control-l-inputcat"
           required
           placeholder="E.g. Infrastructure"
+        />
+      </div>
+      <div className="form-group-select">
+        <label htmlFor="name" className="label-client">
+          Select Icon
+        </label>
+        <input
+          type="file"
+          id="icon"
+          name="icon"
+          className="form-control-l-iconcat"
+          required
+          accept=".jpg, .png, .jpeg"
         />
       </div>
       <div className="form-group-select">
@@ -87,10 +108,11 @@ const CategoryForm = () => {
                 borderColor: state.isFocused ? "#4060a9" : "#5e2bff",
               },
               borderRadius: "20px",
-              width: "100%",
+              width: "90%",
               fontWeight: "500",
-              fontSize: "1.2rem",
+              fontSize: "12px",
               margin: "10px 0",
+              paddingLeft: "10px",
               transition: "all 0.2s ease",
             }),
           }}
@@ -102,12 +124,9 @@ const CategoryForm = () => {
         <input
           type="submit"
           value="Save"
-          className="form-control-btn"
+          className="form-control-btncat"
           disabled={isLoading}
         />
-        <button type="reset" className="form-control-btn">
-          Clear
-        </button>
       </div>
     </form>
   );

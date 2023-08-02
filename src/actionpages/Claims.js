@@ -4,14 +4,16 @@ import AllClaims from "./claims/AllClaims";
 
 const Claims = () => {
   return (
-    <div className="dashboardMainDiv">
-      <div className="headingSpace"></div>
-      <div className="allContent">
-        <div className="sidebarMenu">
-          <Sidebar />
-        </div>
-        <div className="claimsContentBody">
-          <AllClaims />
+    <div className="dashboardMainDiv1">
+      <div className="dashboardMainDiv">
+        <div className="headingSpace"></div>
+        <div className="allContent">
+          <div className="sidebarMenu">
+            <Sidebar />
+          </div>
+          <div className="claimsContentBody">
+            <AllClaims />
+          </div>
         </div>
       </div>
     </div>

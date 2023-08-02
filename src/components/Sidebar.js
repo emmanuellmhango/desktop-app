@@ -13,7 +13,7 @@ const Sidebar = () => {
   return (
     <>
       <div className="dashboardMenu">
-        <ul className="dashboardMenuList">
+        <ul className="dashboardMenuListSB">
           <NavLink to="/dashboard" className="dashboardMenuListLink">
             <li className="dashboardMenuListItem">Dashboard</li>
           </NavLink>

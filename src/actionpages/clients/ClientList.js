@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { MdDeleteOutline } from "react-icons/md";
 import axios from "axios";
+import ReactPaginate from "react-paginate";
 import { GENERAL_URL } from "../../state/url";
 import { deleteClient } from "../../state/clientSlice";
 import LoadingSpinner from "../../startscreens/Spinner";
@@ -10,7 +11,16 @@ import "../../assets/styles/styles.css";
 const ClientList = () => {
   const dispatch = useDispatch();
   const { clients } = useSelector((state) => state.clients);
+  const [newClients, setNewClients] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
+  const itemsPerPage = 5;
+
+  useEffect(() => {
+    setNewClients(clients);
+    setTotalPages(Math.ceil(newClients.length / itemsPerPage));
+  }, []);
 
   const deleteItem = async (event, id) => {
     event.preventDefault();
@@ -28,33 +38,41 @@ const ClientList = () => {
     }
   };
 
+  const startIndex = currentPage * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const subset = newClients.slice(startIndex, endIndex);
+
+  const handlePageChange = (selectedPage) => {
+    setCurrentPage(selectedPage.selected);
+  };
+
   return (
     <div className="usersContainer">
       {isLoading ? <LoadingSpinner /> : null}
       <div className="categoriesListHeader">
-        <h3 className="title">User List</h3>
+        <span className="cattitle">User List</span>
       </div>
-      <div className="categoriesListBody">
+      <div className="categoriesListDiv">
         <table className="tableUsers">
           <thead className="tableHeader">
             <tr>
+              <th className="categoryItemCounter">#</th>
               <th scope="col">Company Name</th>
               <th scope="col">Email</th>
               <th scope="col">Phone Number</th>
               <th scope="col">Social Link</th>
-              <th scope="col">Package</th>
               <th className="actionUsersWidth"></th>
             </tr>
           </thead>
           <tbody>
-            {clients &&
-              clients.map((client, index) => (
+            {subset &&
+              subset.map((client, index) => (
                 <tr key={index} className="tableRow">
-                  <td>{client.company_name}</td>
-                  <td>{client.email}</td>
-                  <td>{client.phone}</td>
+                  <td>{currentPage * itemsPerPage + index + 1}</td>
+                  <td className="normalspace">{client.company_name}</td>
+                  <td className="normalspace">{client.email}</td>
+                  <td className="normalspace">{client.phone}</td>
                   <td>{client.social_link}</td>
-                  <td>{client.package}</td>
                   <td>
                     <MdDeleteOutline
                       className="delete-icon"
@@ -65,6 +83,19 @@ const ClientList = () => {
               ))}
           </tbody>
         </table>
+        {subset && subset.length > 0 && (
+          <ReactPaginate
+            pageCount={totalPages}
+            onPageChange={handlePageChange}
+            forcePage={currentPage}
+            previousLabel={"Prev"}
+            nextLabel={"Next"}
+            containerClassName={"pagination"}
+            activeClassName={"pagination-active"}
+            pageClassName={"pagination-break"}
+            previousClassName={"pagination-previous"}
+          />
+        )}
       </div>
     </div>
   );
