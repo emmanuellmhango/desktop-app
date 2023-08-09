@@ -50,7 +50,7 @@ const Dashboard = () => {
           <div className="sidebarMenu">
             <Sidebar />
           </div>
-          <div className="contentBody">
+          <div className="categoryBody">
             <Main />
           </div>
         </div>

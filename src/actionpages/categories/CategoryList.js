@@ -49,8 +49,8 @@ const CategoriesList = () => {
   return (
     <div className="categoriesListDiv">
       {isLoading ? <LoadingSpinner /> : null}
-      <div className="categoriesListHeader">
-        <span className="cattitle">Categories</span>
+      <div className="categoriesListHeader2">
+        <h3 className="title">Categories</h3>
       </div>
       <div className="categoriesListBody">
         <table className="table">

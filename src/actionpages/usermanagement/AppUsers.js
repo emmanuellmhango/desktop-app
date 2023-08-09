@@ -27,7 +27,7 @@ const AppUsers = ({ appUsers }) => {
   return (
     <div className="categoriesListDiv">
       {isLoading ? <LoadingSpinner /> : null}
-      <div className="categoriesListHeader">
+      <div className="categoriesListHeader2">
         <h3 className="title">App Users</h3>
       </div>
       <div className="categoriesListBody">

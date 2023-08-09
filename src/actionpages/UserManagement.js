@@ -23,7 +23,6 @@ const UserManagement = () => {
   return (
     <div className="dashboardMainDiv1">
       <div className="dashboardMainDiv">
-        <div className="headingSpace"></div>
         <div className="allContent">
           <div className="sidebarMenu">
             <Sidebar />

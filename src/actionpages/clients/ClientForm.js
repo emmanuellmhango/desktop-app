@@ -55,75 +55,16 @@ const ClientForm = () => {
   };
 
   return (
-    <form id="form-edt" onSubmit={handleSubmit} className="userAddForm">
+    <form id="form-edt" onSubmit={handleSubmit}>
       {isLoading ? <LoadingSpinner /> : null}
-      <div className="iconPart">
-        <div className="form-group-client-header">
-          <h3 className="title-user">Choose User Package</h3>
-        </div>
-        <div className="form-group-user-packages">
-          <span
-            className={
-              selectedPackage === "basic"
-                ? "selected-user-packages"
-                : "user-packages"
-            }
-            onClick={(event) => handlePackageSelection(event, "basic")}
-          >
-            Basic
-          </span>
-          <span
-            className={
-              selectedPackage === "advanced"
-                ? "selected-user-packages"
-                : "user-packages"
-            }
-            onClick={(event) => handlePackageSelection(event, "advanced")}
-          >
-            Advanced
-          </span>
-          <span
-            className={
-              selectedPackage === "corporate"
-                ? "selected-user-packages"
-                : "user-packages"
-            }
-            onClick={(event) => handlePackageSelection(event, "corporate")}
-          >
-            Corporate
-          </span>
-          <span
-            className={
-              selectedPackage === "enterprise"
-                ? "selected-user-packages"
-                : "user-packages"
-            }
-            onClick={(event) => handlePackageSelection(event, "enterprise")}
-          >
-            Enterprise
-          </span>
-        </div>
-        <div className="form-group-client-header">
-          <h3 className="title-user">Accounts</h3>
-        </div>
-        <div className="form-group-user-packages">
-          <span className="user-accounts"></span>
-          <span className="user-accounts"></span>
-          <span className="user-accounts"></span>
-          <span className="user-accounts"></span>
-          <span className="user-accounts"></span>
-          <span className="user-accounts"></span>
-          <span className="user-accounts"></span>
-          <span className="user-accounts"></span>
-          <span className="user-accounts"></span>
-          <span className="user-accounts"></span>
-        </div>
+      <div className="categoriesListHeader2">
+        <h3 className="title">Register Client</h3>
       </div>
       <div className="userForm">
-        <div className="form-group-client-user">
+        <div className="form-group-select">
           <div className="formLabel">
             <label htmlFor="name" className="label-client">
-              Company Name
+              Company Name <br />
             </label>
           </div>
           <div className="formInputType">
@@ -131,13 +72,13 @@ const ClientForm = () => {
               type="text"
               id="company_name"
               name="company_name"
-              className="form-control-l-user"
+              className="form-control-l-inputcat"
               required
             />
           </div>
         </div>
 
-        <div className="form-group-client-user">
+        <div className="form-group-select">
           <div className="formLabel">
             <label htmlFor="username" className="label-client">
               User Name
@@ -148,12 +89,12 @@ const ClientForm = () => {
               type="text"
               id="username"
               name="username"
-              className="form-control-l-user"
+              className="form-control-l-inputcat"
               required
             />
           </div>
         </div>
-        <div className="form-group-client-user">
+        <div className="form-group-select">
           <div className="formLabel">
             <label htmlFor="email" className="label-client">
               Email
@@ -164,15 +105,15 @@ const ClientForm = () => {
               type="email"
               id="email"
               name="email"
-              className="form-control-l-user"
+              className="form-control-l-inputcat"
               required
             />
           </div>
         </div>
-        <div className="form-group-client-user">
+        <div className="form-group-select">
           <div className="formLabel">
             <label htmlFor="password" className="label-client">
-              Passoword
+              Password
             </label>
           </div>
           <div className="formInputType">
@@ -180,12 +121,12 @@ const ClientForm = () => {
               type="password"
               id="password"
               name="password"
-              className="form-control-l-user"
+              className="form-control-l-inputcat"
               required
             />
           </div>
         </div>
-        <div className="form-group-client-user">
+        <div className="form-group-select">
           <div className="formLabel">
             <label htmlFor="phone" className="label-client">
               Phone
@@ -196,12 +137,12 @@ const ClientForm = () => {
               type="phone"
               id="phone"
               name="phone"
-              className="form-control-l-user"
+              className="form-control-l-inputcat"
               required
             />
           </div>
         </div>
-        <div className="form-group-client-user">
+        <div className="form-group-select">
           <div className="formLabel">
             <label htmlFor="social_link" className="label-client">
               Social Link
@@ -212,17 +153,17 @@ const ClientForm = () => {
               type="text"
               id="social_link"
               name="social_link"
-              className="form-control-l-user"
+              className="form-control-l-inputcat"
               required
             />
           </div>
         </div>
-        <div className="form-group-client-user">
+        <div className="form-group-select">
           <div className="formLabel"></div>
           <div className="formInputType">
             <input
               type="submit"
-              value="Add User"
+              value="Add Client"
               className="form-control-btn-client"
               disabled={isLoading}
             />

@@ -62,8 +62,9 @@ const CategoryForm = () => {
   return (
     <form id="form-edt" onSubmit={handleSubmit}>
       {isLoading ? <LoadingSpinner /> : null}
-      <span className="cattitle">Add Category</span>
-      <br />
+      <div className="categoriesListHeader2">
+        <h3 className="title">Add Category</h3>
+      </div>
       <div className="form-group-select">
         <label htmlFor="name" className="label-client">
           Category Name

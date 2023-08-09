@@ -49,10 +49,10 @@ const ClientList = () => {
   return (
     <div className="usersContainer">
       {isLoading ? <LoadingSpinner /> : null}
-      <div className="categoriesListHeader">
-        <span className="cattitle">User List</span>
-      </div>
       <div className="categoriesListDiv">
+        <div className="categoriesListHeader2">
+          <h3 className="title">Clients</h3>
+        </div>
         <table className="tableUsers">
           <thead className="tableHeader">
             <tr>

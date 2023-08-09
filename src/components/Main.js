@@ -158,7 +158,9 @@ const Main = () => {
   return (
     <div className="dashboardAnalytics">
       <div className="analyticsChartContainer">
-        <div className="dashboardHeading">Dashboard Analytics</div>
+        <div className="dashboardHeading">
+          <h3 className="title">Dashboard Analytics</h3>
+        </div>
         <div className="headerMenuContainer">
           <div className="gridItem">
             <span className="analyticsHeaderItemText">New Users</span>

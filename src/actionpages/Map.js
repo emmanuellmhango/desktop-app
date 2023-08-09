@@ -50,32 +50,16 @@ const Map = () => {
   return (
     <div className="dashboardMainDiv1">
       <div className="dashboardMainDiv">
-        <div className="headingSpace"></div>
         <div className="allContent">
           <div className="sidebarMenu">
             <Sidebar />
           </div>
-          <div className="claimsBody">
-            <div className="mapTitle">
-              <div className="claimsListHeader">
-                <span>
-                  <span className="cattitle">Claim Map</span>
-                </span>
-                <span>
-                  <NavLink to="/claims">
-                    <FiMenu className="headerIconMap" title="View as List" />
-                  </NavLink>
-                </span>
-              </div>
+          <div className="categoryBody">
+            <div className="ClaimsFormM">
+              <ClaimLocations />
             </div>
-
-            <div className="mapItems">
-              <div className="ClaimsFormM">
-                <ClaimLocations />
-              </div>
-              <div className="claimsListContainer">
-                <ClaimMapDisplay />
-              </div>
+            <div className="claimsListContainer">
+              <ClaimMapDisplay />
             </div>
           </div>
         </div>
