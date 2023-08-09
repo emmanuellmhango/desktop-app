@@ -176,7 +176,7 @@ const Main = () => {
               <span className="analyticsHeaderItemNumber">
                 {appUsers ? appUsers.length : 0}
               </span>
-              <div className="test">
+              <div className="daysreport7">
                 <span className="reports-seven-days">Reports of 7 days</span>
               </div>
             </div>

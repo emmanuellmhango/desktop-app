@@ -100,14 +100,10 @@ const Incoming = () => {
   return (
     <div className="ClaimsList">
       <div className="claimsListHeader">
-        <span>
+        <span className="claimsheaderWS">
           <h3 className="title">Incoming Claims</h3>
         </span>
-        <span>
-          <NavLink to="/map">
-            <FcGlobe className="headerIconMap" title="View on Map" />
-          </NavLink>
-        </span>
+        <span className="claimsheaderDS title">Incoming Claims</span>
       </div>
       <div className="categoriesListDiv">
         <table className="table">
@@ -152,7 +148,7 @@ const Incoming = () => {
                     {claim.forwarded === "false" && (
                       <div className="actions">
                         <button
-                          className="actionButtonReject space-forward"
+                          className="actionButtonReject space-forward space-bottom"
                           onClick={(event) => rejectClaim(event, claim.id)}
                         >
                           <MdDeleteForever className="forwardIcon" />
