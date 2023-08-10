@@ -45,7 +45,17 @@ const Dashboard = () => {
 
   return (
     <div className="dashboardMainDiv1">
-      <div className="dashboardMainDiv">
+      <div className="dashboardMainDiv otherDevices">
+        <div className="allContent">
+          <div className="sidebarMenu">
+            <Sidebar />
+          </div>
+          <div className="categoryBody">
+            <Main />
+          </div>
+        </div>
+      </div>
+      <div className="dashboardMainDiv smallerdevices">
         <div className="allContent">
           <div className="sidebarMenu">
             <Sidebar />

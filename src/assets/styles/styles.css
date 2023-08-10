@@ -85,7 +85,7 @@
   }
 
   .form-control-btncat {
-    width: 40%;
+    width: 100px;
     max-width: 20rem;
     height: 30px;
     border-radius: 25px;
@@ -132,7 +132,7 @@
   }
 
   .form-control-btn-client {
-    width: 50%;
+    width: 100px;
     max-width: 20rem;
     height: 30px;
     border-radius: 25px;
@@ -746,12 +746,26 @@
   }
   
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 991px) {
+  .otherDevices{
+    display: none;
+  }
 
+  .smallerdevices {
+    display: block;
+  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
+  .otherDevices{
+    display: block;
+  }
+
+  .smallerdevices {
+    display: none;
+  }
+
   .analyticsChartTable {
     height: 380px;
     display: flex;
@@ -841,7 +855,14 @@
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-     
+  .otherDevices{
+    display: block;
+  }
+
+  .smallerdevices {
+    display: none;
+  }
+
   .categoryBodyus {
     display: flex;
     flex-direction: row;
