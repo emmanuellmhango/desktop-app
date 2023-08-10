@@ -64,7 +64,7 @@ const ClientForm = () => {
         <div className="form-group-select">
           <div className="formLabel">
             <label htmlFor="name" className="label-client">
-              Company Name <br />
+              Company Name
             </label>
           </div>
           <div className="formInputType">

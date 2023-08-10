@@ -8,6 +8,224 @@
     background-color: #f5f5f5;
     overflow-x: hidden;
   }
+  
+  .app-users-listus {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 95%;
+    height: 100%;
+    margin: 0 auto;
+  }
+
+  .delete-icon {
+    color: green; 
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .delete-icon:hover {
+    color: red;
+  }
+
+  .actionUsersWidth {
+    width: 25px;
+  }
+
+  .deliconcategory {
+    width: 30px;
+  }
+
+  .catIconBorder {
+    text-align: center;
+  }
+
+  .iconCategory {
+    width: 50px;
+    height: 50px;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    border: 1px solid #ccc;
+  }
+
+  .catname {
+    text-align: center;
+  }
+
+  .categoryItemCat {}
+
+  .categoryItemCat:hover {
+    background-color: #5e2bff;
+    color: #fff;
+  }
+
+  .categoryItemIcon {
+    width: 200px;
+  }
+
+  .categoryItemCounter {
+    width: 30px;
+    background-color: #dbdcdd;
+  }
+
+  .categoriesListBody {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  .form-group-push {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .form-control-btncat {
+    width: 40%;
+    max-width: 20rem;
+    height: 30px;
+    border-radius: 25px;
+    background-color: #5e2bff;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  .form-control-l-iconcat {
+    width: 90%;
+    border-radius: 20px;
+    padding-left: 12px;
+    padding-top: 5px;
+    height: 30px;
+    margin: 10px 0;
+    border: 1px solid #5e2bff;
+    font-size: 12px;
+    outline: none;
+    font-weight: 500;
+    transition: border-color 0.2s ease-in-out;
+  }
+
+  .categoriesList {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    margin: 0 10px 0 0;
+    border: 1px solid #ccc;
+  }
+
+  .categoryForm {
+    width: 250px;
+    height: 50%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin: 0 10px 0 10px;
+  }
+
+  .form-control-btn-client {
+    width: 50%;
+    max-width: 20rem;
+    height: 30px;
+    border-radius: 25px;
+    background-color: #5e2bff;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  .form-control-l-inputcat {
+    width: 90%;
+    border-radius: 20px;
+    height: 25px;
+    margin: 5px 0;
+    border: 1px solid #5e2bff;
+    font-size: 12px;
+    padding-left: 12px;
+    outline: none;
+    font-weight: 500;
+    transition: border-color 0.2s ease-in-out;
+  }
+
+  .form-control-l-select {
+    width: 100%;
+  }
+
+  .form-control-l:focus,
+  .form-control-l:hover,
+  .form-control-l-user:focus,
+  .form-control-l-user:hover,
+  .form-control-l-input:hover,
+  .form-control-l-input:focus {
+    box-shadow: 0 0 0 0.2rem rgba(69, 132, 168, 0.5);
+    border-color: #4060a9;
+    cursor: pointer;
+  }
+
+  .formInputType {
+    width: 100%;
+  }
+
+  .label-client {
+    font-size: 14px;
+    font-weight: 500;
+    color: #606263;
+  }
+
+  .formLabel {
+    width: 100%;
+    text-align: left;
+  }
+
+  .form-group-select {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .userForm {
+    width: 100%;
+  }
+
+  .categoriesListHeader2 {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .userManagementList {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 78%;
+    height: 100%;
+    align-self: center;
+    padding-left: 5px;
+  }
+
+  .clientForm {
+    width: 250px;
+    height: 80%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin: 0 10px 0 10px;
+  }
 
   .claimsListHeader {
     display: flex;
@@ -181,11 +399,15 @@
   }
 
   .gridItem {
+    display: flex;
+    flex-direction: column;
+    align-items: space-around;
     font-size: 15px;
     color: #fff;
     cursor: pointer;
     text-align: center;
     margin-bottom:10px;
+    font-weight: 500;
   }
 
   .gridItem:hover {
@@ -210,7 +432,7 @@
   .headerMenuContainer {
     margin-bottom: 10px;
     width: 100%;
-    height: 65px;
+    height: 55px;
     display: flex;
     background-color: #5e2bff;
     align-items: center;
@@ -382,8 +604,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 90vw;
-    height: 90vh;
+    width: 99vw;
+    height: 95vh;
   }
 
   .mapItems {
@@ -530,6 +752,12 @@
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
+  .analyticsChartTable {
+    height: 380px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .headerIconMap {
     font-size: 18px;
     cursor: pointer;
@@ -598,10 +826,32 @@
   .imagesSpace {
     width: 130px;
   }
+   
+  .categoryBodyus {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 85%;
+    height: 550px;
+    background-color: #fff;
+    font-size: 12px;
+  }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
+     
+  .categoryBodyus {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 85%;
+    height: 678px;
+    background-color: #fff;
+    font-size: 12px;
+  }
   .headerIconMap {
     font-size: 20px;
     cursor: pointer;
@@ -693,26 +943,6 @@
     text-align: center;
   }
 
-  .catIconBorder {
-    text-align: center;
-  }
-
-  .iconCategory {
-    width: 50px;
-    height: 50px;
-    aspect-ratio: 1/1;
-    object-fit: contain;
-    border: 1px solid #ccc;
-  }
-
-  .categoryItemIcon {
-    width: 200px;
-  }
-
-  .catname {
-    text-align: center;
-  }
-
   .loginButtonDiv {
     display: flex;
     flex-direction: column;
@@ -767,12 +997,6 @@
     box-shadow: 0 0 0 0.2rem rgba(69, 132, 168, 0.5);
   }
 
-  .label-client {
-    font-size: 14px;
-    font-weight: 500;
-    color: #606263;
-  }
-
   .labels {
     font-size: 1.2rem;
     font-weight: 500;
@@ -815,7 +1039,7 @@
     flex-direction: column;
     justify-content: space-between;
     width: 200px;
-    height: 778px;
+    height: 678px;
     background-color: #4060a9;
   }
 
@@ -875,7 +1099,7 @@
   }
 
   .analyticsChartTable {
-    height: 90%;
+    height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -891,34 +1115,16 @@
     background-color: #fff;
   }
 
-  .categoryBodyus {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-    width: 85%;
-    height: 778px;
-    background-color: #fff;
-    font-size: 12px;
-  }
-
   .categoryBody {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
     width: 85%;
-    height: 778px;
+    height: 678px;
     background-color: #fff;
   }
 
-  .clientForm {
-    width: 250px;
-    height: 80%;
-    padding: 20px;
-    border: 1px solid #ccc;
-    margin: 0 10px 0 10px;
-  }
 
   .userManagementListDiv {
     width: 100%;
@@ -939,43 +1145,9 @@
 
   }
 
-  .userForm {
-    width: 100%;
-  }
-
   .userAddForm {
     display: flex;
     flex-direction: row;
-  }
-
-  .categoryForm {
-    width: 250px;
-    height: 50%;
-    padding: 20px;
-    border: 1px solid #ccc;
-    margin: 0 10px 0 10px;
-  }
-
-  .categoriesList {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    width: 100%;
-    height: 100%;
-    margin: 0 10px 0 0;
-    border: 1px solid #ccc;
-  }
-
-  .userManagementList {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    width: 78%;
-    height: 100%;
-    align-self: center;
-    padding-left: 5px;
   }
 
   .usersContainer {
@@ -985,16 +1157,6 @@
 
   .claimsListAll {
     font-size: 1.1rem;
-  }
-
-  .app-users-listus {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    width: 95%;
-    height: 100%;
-    margin: 0 auto;
   }
 
   .app-users-list {
@@ -1033,15 +1195,6 @@
     width: 100%;
   }
 
-  .formLabel {
-    width: 100%;
-    text-align: left;
-  }
-
-  .formInputType {
-    width: 100%;
-  }
-
   .form-control-l-user {
     width: 95%;
     margin-left: 5px;
@@ -1052,34 +1205,6 @@
     outline: none;
     font-weight: 500;
     transition: border-color 0.2s ease-in-out;
-  }
-
-  .form-group-select {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-  }
-
-  .form-group-push {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .delete-icon {
-    color: green; 
-    font-size: 20px;
-    cursor: pointer;
-  }
-
-  .delete-icon:hover {
-    color: red;
-  }
-
-  .actionUsersWidth {
-    width: 25px;
   }
 
   .categoryItem {
@@ -1093,43 +1218,10 @@
     color: #606263;
   }
 
-  .categoryItemCat {}
-
-  .categoryItemCat:hover {
-    background-color: #5e2bff;
-    color: #fff;
-  }
-
-  .categoryItemCounter {
-    width: 30px;
-    background-color: #dbdcdd;
-  }
-
-  .deliconcategory {
-    width: 30px;
-  }
-
-  .categoriesListBody {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    overflow-y: scroll;
-    overflow-x: hidden;
-  }
-
   .headerIconList {
     font-size: 1.5rem;
     color: #606263;
     cursor: pointer;
-  }
-
-  .categoriesListHeader2 {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    width: 100%;
-    border-bottom: 1px solid #ccc;
   }
 
   .categoriesListHeader {
@@ -1141,20 +1233,6 @@
     border-bottom: 1px solid #ccc;
   }
 
-  .form-control-btn-client {
-    width: 50%;
-    max-width: 20rem;
-    height: 2.5rem;
-    border-radius: 25px;
-    background-color: #5e2bff;
-    color: white;
-    font-size: 1.2rem;
-    font-weight: 500;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-  }
-
   .form-control-btn {
     width: 40%;
     max-width: 20rem;
@@ -1163,20 +1241,6 @@
     background-color: #5e2bff;
     color: white;
     font-size: 1.2rem;
-    font-weight: 500;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-  }
-
-  .form-control-btncat {
-    width: 30%;
-    max-width: 20rem;
-    height: 30px;
-    border-radius: 25px;
-    background-color: #5e2bff;
-    color: white;
-    font-size: 15px;
     font-weight: 500;
     border: none;
     cursor: pointer;
@@ -1207,20 +1271,6 @@
     transition: border-color 0.2s ease-in-out;
   }
 
-  .form-control-l-iconcat {
-    width: 90%;
-    border-radius: 20px;
-    padding-left: 12px;
-    padding-top: 5px;
-    height: 30px;
-    margin: 10px 0;
-    border: 1px solid #5e2bff;
-    font-size: 12px;
-    outline: none;
-    font-weight: 500;
-    transition: border-color 0.2s ease-in-out;
-  }
-
   .form-control-l {
     width: 100%;
     border-radius: 20px;
@@ -1246,34 +1296,6 @@
     transition: border-color 0.2s ease-in-out;
   }
 
-  .form-control-l-inputcat {
-    width: 90%;
-    border-radius: 20px;
-    height: 30px;
-    margin: 10px 0;
-    border: 1px solid #5e2bff;
-    font-size: 12px;
-    padding-left: 12px;
-    outline: none;
-    font-weight: 500;
-    transition: border-color 0.2s ease-in-out;
-  }
-
-  .form-control-l-select {
-    width: 100%;
-  }
-
-  .form-control-l:focus,
-  .form-control-l:hover,
-  .form-control-l-user:focus,
-  .form-control-l-user:hover,
-  .form-control-l-input:hover,
-  .form-control-l-input:focus {
-    box-shadow: 0 0 0 0.2rem rgba(69, 132, 168, 0.5);
-    border-color: #4060a9;
-    cursor: pointer;
-  }
-
   .contentBody {
     display: flex;
     flex-direction: column;
@@ -1290,7 +1312,7 @@
     align-items: center;
     justify-content: center;
     width: 85%;
-    height: 778px;
+    height: 678px;
     background-color: #fff;
   }
 

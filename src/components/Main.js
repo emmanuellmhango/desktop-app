@@ -164,26 +164,18 @@ const Main = () => {
         <div className="headerMenuContainer">
           <div className="gridItem">
             <span className="analyticsHeaderItemText">New Users</span>
-            <br />
             <span className="analyticsHeaderItemNumber">
               {recentUsers ? recentUsers : 0}
             </span>
           </div>
-          <div className="gridItem2">
-            <div classname="gridItem2Container">
-              <span className="analyticsHeaderItemText">New Claims</span>
-              <br />
-              <span className="analyticsHeaderItemNumber">
-                {appUsers ? appUsers.length : 0}
-              </span>
-              <div className="daysreport7">
-                <span className="reports-seven-days">Reports of 7 days</span>
-              </div>
-            </div>
+          <div className="gridItem">
+            <span className="analyticsHeaderItemText">New Claims</span>
+            <span className="analyticsHeaderItemNumber">
+              {appUsers ? appUsers.length : 0}
+            </span>
           </div>
           <div className="gridItem">
             <span className="analyticsHeaderItemText">New Clients</span>
-            <br />
             <span className="analyticsHeaderItemNumber">
               {recentClients ? recentClients : 0}
             </span>
@@ -195,21 +187,18 @@ const Main = () => {
         <div className="headerMenuContainer">
           <div className="gridItem">
             <span className="analyticsHeaderItemText">Total Users</span>
-            <br />
             <span className="analyticsHeaderItemNumber">
               {appUsers ? appUsers.length : 0}
             </span>
           </div>
           <div className="gridItem">
             <span className="analyticsHeaderItemText">Total Claims</span>
-            <br />
             <span className="analyticsHeaderItemNumber">
               {appUsers ? appUsers.length : 0}
             </span>
           </div>
           <div className="gridItem">
             <span className="analyticsHeaderItemText">Total Clients</span>
-            <br />
             <span className="analyticsHeaderItemNumber">
               {clients ? clients.length : 0}
             </span>

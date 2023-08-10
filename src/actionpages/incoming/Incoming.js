@@ -104,7 +104,13 @@ const Incoming = () => {
           <h3 className="title">Incoming Claims</h3>
         </span>
         <span className="claimsheaderDS title">Incoming Claims</span>
+        <span>
+          <NavLink to="/map">
+            <FcGlobe className="headerIconMap" title="View on Map" />
+          </NavLink>
+        </span>
       </div>
+
       <div className="categoriesListDiv">
         <table className="table">
           <thead className="tableHeader">

@@ -104,7 +104,7 @@ const Sidebar = () => {
             >
               <div className="sidebarMenuSide">
                 <TiBusinessCard color="white" className="sidebarMenuM" />
-                <span className="padLeft">Client Management</span>
+                <span className="padLeft">Clients</span>
               </div>
             </li>
           </NavLink>
