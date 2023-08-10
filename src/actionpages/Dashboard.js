@@ -45,7 +45,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboardMainDiv1">
-      <div className="dashboardMainDiv otherDevices">
+      <div className="dashboardMainDiv">
         <div className="allContent">
           <div className="sidebarMenu">
             <Sidebar />
@@ -55,7 +55,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      <div className="dashboardMainDiv smallerdevices">
+      {/* <div className="dashboardMainDiv smallerdevices">
         <div className="allContent">
           <div className="sidebarMenu">
             <Sidebar />
@@ -64,7 +64,7 @@ const Dashboard = () => {
             <Main />
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
