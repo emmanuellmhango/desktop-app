@@ -1,5 +1,8 @@
 import React from "react";
 import Sidebar from "../components/Sidebar";
+import SystemUser from "./systemusers/SystemUserForm";
+import SystemUserList from "./systemusers/SystemUserList";
+
 import "../assets/styles/styles.css";
 
 const SystemUsers = () => {
@@ -11,8 +14,12 @@ const SystemUsers = () => {
             <Sidebar />
           </div>
           <div className="categoryBody">
-            <div className="clientForm">Test</div>
-            <div className="userManagementList">Test</div>
+            <div className="clientForm">
+              <SystemUser />
+            </div>
+            <div className="userManagementList">
+              <SystemUserList />
+            </div>
           </div>
         </div>
       </div>

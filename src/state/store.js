@@ -5,6 +5,7 @@ import categorySlice from "./categorySlice";
 import clientSlice from "./clientSlice";
 import claimsSlice from "./claimsSlice";
 import selectedClaimSlice from "./selectedClaimSlice";
+import systemUsersSlice from "./systemUsersSlice";
 
 const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
     clients: clientSlice.reducer,
     claims: claimsSlice.reducer,
     selectedClaim: selectedClaimSlice.reducer,
+    systemusers: systemUsersSlice.reducer,
   },
 });
 

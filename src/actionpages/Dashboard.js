@@ -8,6 +8,8 @@ import { addClient } from "../state/clientSlice";
 import { fetchUserClients } from "./clients/fetchClients";
 import { fetchCategories } from "./categories/fetchCategories";
 import { addCategory } from "../state/categorySlice";
+import { fetchSystemUsers } from "./systemusers/fetchSystemUsers";
+import { addSystemUsers } from "../state/systemUsersSlice";
 import "../assets/styles/styles.css";
 
 const Dashboard = () => {
@@ -40,6 +42,16 @@ const Dashboard = () => {
     };
 
     fetchAllCategories();
+    return () => {};
+  }, []);
+
+  useEffect(() => {
+    const fetchAllSystemUsers = async () => {
+      const sysUsers = await fetchSystemUsers();
+      dispatch(addSystemUsers(sysUsers));
+    };
+
+    fetchAllSystemUsers();
     return () => {};
   }, []);
 
