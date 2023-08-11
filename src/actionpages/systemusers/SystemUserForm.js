@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import Select from "react-select";
-import { GENERAL_URL } from "../../state/url";
+import URL from "../../state/url";
 import LoadingSpinner from "../../startscreens/Spinner";
-import { addClient } from "../../state/clientSlice";
+import { addSystemUsers } from "../../state/systemUsersSlice";
 
 import "../../assets/styles/styles.css";
 
@@ -27,21 +27,21 @@ const SystemUser = () => {
       email: e.target.elements.email.value,
       phone: e.target.elements.phone.value,
       password: e.target.elements.password.value,
-      role: selectedRole,
+      role: selectedRole.value,
+      dob: "---",
     };
+
     try {
       if (selectedRole === "") {
         alert("Please select a Role");
       } else {
-        const response = await axios.post(
-          `${GENERAL_URL}/user_managements`,
-          data
-        );
+        const response = await axios.post(URL, data);
         setIsLoading(false);
-        const { success, userClients } = response.data;
+        const { success, sys_users } = response.data;
 
         if (success) {
-          dispatch(addClient(userClients));
+          dispatch(addSystemUsers(sys_users));
+          alert(" User Added Successfully");
         } else {
           alert("Error saving data. Please try again!");
         }

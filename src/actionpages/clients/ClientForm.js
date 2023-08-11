@@ -10,7 +10,6 @@ import "../../assets/styles/styles.css";
 const ClientForm = () => {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
-  const [selectedPackage, setSelectedPackage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,35 +22,26 @@ const ClientForm = () => {
       phone: e.target.elements.phone.value,
       password: e.target.elements.password.value,
       social_link: e.target.elements.social_link.value,
-      package: selectedPackage,
+      package: "",
     };
     try {
-      if (selectedPackage === "") {
-        alert("Please select a package");
-      } else {
-        const response = await axios.post(
-          `${GENERAL_URL}/user_managements`,
-          data
-        );
-        setIsLoading(false);
-        const { success, userClients } = response.data;
+      const response = await axios.post(
+        `${GENERAL_URL}/user_managements`,
+        data
+      );
+      setIsLoading(false);
+      const { success, userClients } = response.data;
 
-        if (success) {
-          dispatch(addClient(userClients));
-        } else {
-          alert("Error saving data. Please try again!");
-        }
+      if (success) {
+        dispatch(addClient(userClients));
+      } else {
+        alert("Error saving data. Please try again!");
       }
     } catch (error) {
       setIsLoading(false);
       console.log(error);
       alert("Oops! Something went wrong. Please try again.");
     }
-  };
-
-  const handlePackageSelection = (event, selectedPackage) => {
-    event.preventDefault();
-    setSelectedPackage(selectedPackage);
   };
 
   return (

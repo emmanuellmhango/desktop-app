@@ -12,6 +12,8 @@ const SystemUserList = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { systemusers } = useSelector((state) => state.systemusers);
 
+  useEffect(() => {}, [systemusers]);
+
   const deleteItem = async (id) => {
     setIsLoading(true);
     const response = await axios.delete(`${URL}/${id}`);
@@ -25,11 +27,18 @@ const SystemUserList = () => {
     }
   };
 
+  const role = (role) => {
+    if (role === "basicadmin") {
+      return "Basic Admin";
+    } else if (role === "superadmin") {
+      return "Super Admin";
+    }
+  };
   return (
     <div className="categoriesListDiv">
       {isLoading ? <LoadingSpinner /> : null}
       <div className="categoriesListHeader2">
-        <h3 className="title">Categories</h3>
+        <h3 className="title">System Users</h3>
       </div>
       <div className="categoriesListBody">
         <table className="table">
@@ -39,6 +48,7 @@ const SystemUserList = () => {
               <th>Name</th>
               <th>Phone</th>
               <th>Credentials</th>
+              <th>Role</th>
               <th className="categoryItemCounter"></th>
             </tr>
           </thead>
@@ -53,6 +63,7 @@ const SystemUserList = () => {
                     Email: {user.email} <br />
                     Passw: XXXX-XXXX
                   </td>
+                  <td>{role(user.role)}</td>
                   <td className="categoryItemDeleted deliconcategory">
                     <MdDeleteOutline
                       className="delete-icon"

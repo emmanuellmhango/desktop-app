@@ -8,7 +8,7 @@ export const fetchSystemUsers = async () => {
     if (success) {
       return users;
     } else {
-      console.log("Error fetching claims");
+      console.log(response.data);
     }
   } catch (error) {
     console.log(error);
