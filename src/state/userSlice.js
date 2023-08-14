@@ -13,8 +13,11 @@ const userSlice = createSlice({
     deleteUser: (state, action) => {
       state.user = state.user.filter((user) => user.id !== action.payload);
     },
+    logoutUser: (state, action) => {
+      state.user = [];
+    },
   },
 });
 
-export const { addUser, deleteUser } = userSlice.actions;
+export const { addUser, deleteUser, logoutUser } = userSlice.actions;
 export default userSlice;

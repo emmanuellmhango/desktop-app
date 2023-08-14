@@ -69,6 +69,14 @@
     background-color: #dbdcdd;
   }
 
+  .categoriesListBodySub {
+    width: 98%;
+    height: 100%;
+    margin: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
   .categoriesListBody {
     width: 100%;
     height: 100%;
@@ -208,6 +216,26 @@
     border-bottom: 1px solid #ccc;
   }
 
+  .categoriesListHeader2Sub {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 98%;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .userManagementListSub {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 98%;
+    height: 100%;
+    align-self: center;
+    padding-left: 5px;
+  }  
+  
   .userManagementList {
     display: flex;
     flex-direction: column;
@@ -285,7 +313,6 @@
     width: 100%;
     height: 100%;
     margin: 0 10px 0 0;
-    border: 1px solid #ccc;
   }
 
   .headerIconMap:hover,
@@ -492,19 +519,18 @@
   }
 
   .logoutButtonDiv {
-    margin-top: 2rem;
-    width: 60%;
-    max-width: 20rem;
-    height: 2.5rem;
+    width: 100%;
+    height: 60px;
     border-radius: 25px;
-    transition: background-color 0.2s ease-in-out;
-    margin-bottom: 3rem;
     align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
   }
 
   .logoutButton {
     width: 120px;
-    max-width: 120px;
     height: 30px;
     border-radius: 25px;
     background-color: #5e2bff;
@@ -513,7 +539,6 @@
     border: none;
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
-    margin-bottom: 100px;
   }
 
   .logoutButton:hover {
@@ -568,8 +593,8 @@
   .dashboardMenu {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+    align-items: space-between;
+    justify-content: center;
     width: 100%;
     height: 100%;
   }
@@ -1396,8 +1421,8 @@
   }
 
   .claimimageDisplay {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     object-fit: contain;
     aspect-ratio: 1/1;
     border: 1px solid #000;

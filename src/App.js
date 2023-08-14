@@ -10,6 +10,8 @@ import Clients from "./actionpages/Clients";
 import UserManagement from "./actionpages/UserManagement";
 import IncomingClaims from "./actionpages/IncomingClaims";
 import SystemUsers from "./actionpages/SystemUsers";
+import SubCategories from "./actionpages/SubCategories";
+import SubClients from "./actionpages/SubClients";
 
 const App = () => {
   return (
@@ -25,6 +27,8 @@ const App = () => {
         <Route exact path="/users" element={<UserManagement />} />
         <Route exact path="/incoming-claims" element={<IncomingClaims />} />
         <Route exact path="/admins" element={<SystemUsers />} />
+        <Route exact path="/subcategories" element={<SubCategories />} />
+        <Route exact path="/subclients" element={<SubClients />} />
       </Routes>
     </Router>
   );
