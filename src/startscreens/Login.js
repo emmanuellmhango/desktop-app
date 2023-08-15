@@ -19,7 +19,6 @@ const Login = () => {
     const email = event.target.email.value;
     const password = event.target.password.value;
     const data = { email, password };
-    // console.log(data);
     try {
       await axios
         .get(
@@ -35,12 +34,20 @@ const Login = () => {
           setIsLoading(false);
           const { success, user } = response.data;
           if (success) {
-            dispatch(addUser(user));
-            localStorage.setItem(
-              "4E2hT6rG8nL1wY5zI3O9K7sD0X6yF7lP",
-              JSON.stringify(user)
-            );
-            navigate("/dashboard");
+            if (
+              user.role === "" ||
+              user.role === null ||
+              user.role === undefined
+            ) {
+              alert("Wrong credentials, please contact the support office!");
+            } else {
+              dispatch(addUser(user));
+              localStorage.setItem(
+                "4E2hT6rG8nL1wY5zI3O9K7sD0X6yF7lP",
+                JSON.stringify(user)
+              );
+              navigate("/dashboard");
+            }
           } else {
             alert("Wrong email or password, please try again!");
           }
