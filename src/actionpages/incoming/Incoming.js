@@ -83,10 +83,67 @@ const Incoming = () => {
     navigate("/map", { claim_id: claim_id });
   };
 
-  const forwardClaim = (event, claim) => {
+  const forwardClaim = async (event, claim) => {
     event.preventDefault();
     event.stopPropagation();
-    alert(claim.id);
+    const categoryName = { category_name: claim.category.name };
+    const getActor = async () => {
+      try {
+        const response = await axios.get(
+          `${GENERAL_URL}/category_client_email`,
+          {
+            params: categoryName,
+          }
+        );
+
+        const { success, details } = response.data;
+        const { email } = details.user_management;
+
+        if (success) {
+          const img1 = claim.images[0];
+          const img2 = claim.images[1];
+          const comment = claim.comment;
+
+          const sendEmail = await axios.get(
+            `https://claimsappsupport.000webhostapp.com/api/v1/send_mail.php?to=${email}&img1=${img1}&img2=${img2}&comment=${comment}`
+          );
+          const { success } = sendEmail.data;
+          if (success) {
+            const data = {
+              forwarded: "true",
+            };
+
+            try {
+              const response = await axios.put(
+                `${GENERAL_URL}/claims/${claim.id}`,
+                data
+              );
+              const { success } = response.data;
+              if (success) {
+                const updatedClaims = incomingClaims.filter(
+                  (c) => c.id !== claim.id
+                );
+                setIncomingClaims(updatedClaims);
+                alert("The claim has been forwarded to the proper client.");
+              } else {
+                alert("Oops! something went wrong");
+              }
+            } catch (error) {
+              alert(
+                "Oops! something went wrong. but dont worry, the claim has been forwarded."
+              );
+            }
+          }
+        } else {
+          alert("Oops! Could not send Email");
+        }
+      } catch (error) {
+        console.log(error.response.data);
+      }
+    };
+    getActor();
+
+    //console.log(getActor);
   };
 
   // Helper function to handle image load
