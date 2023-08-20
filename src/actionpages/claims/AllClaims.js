@@ -17,13 +17,15 @@ function AllClaims() {
 
   useEffect(() => {
     const sortClaims = async () => {
-      const newArr = await claims.map((claim) => claim);
-      const sortedClaims = await newArr
-        .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
-        .map((claim) => ({ ...claim, imageLoaded: false }));
+      if (claims) {
+        const newArr = await claims.map((claim) => claim);
+        const sortedClaims = await newArr
+          .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+          .map((claim) => ({ ...claim, imageLoaded: false }));
 
-      setSortedClaims(sortedClaims);
-      setTotalPages(Math.ceil(sortedClaims.length / itemsPerPage));
+        setSortedClaims(sortedClaims);
+        setTotalPages(Math.ceil(sortedClaims.length / itemsPerPage));
+      }
     };
 
     sortClaims();

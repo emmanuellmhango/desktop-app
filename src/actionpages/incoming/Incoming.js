@@ -21,16 +21,18 @@ const Incoming = () => {
 
   useEffect(() => {
     const fetchIncomingClaims = async () => {
-      const filteredClaims = await claims.filter(
-        (claim) => claim.forwarded === "false"
-      );
+      if (claims) {
+        const filteredClaims = await claims.filter(
+          (claim) => claim.forwarded === "false"
+        );
 
-      const sortedClaims = await filteredClaims.sort(
-        (a, b) => new Date(b.created_at) - new Date(a.created_at)
-      );
+        const sortedClaims = await filteredClaims.sort(
+          (a, b) => new Date(b.created_at) - new Date(a.created_at)
+        );
 
-      setIncomingClaims(sortedClaims);
-      setTotalPages(Math.ceil(sortedClaims.length / itemsPerPage));
+        setIncomingClaims(sortedClaims);
+        setTotalPages(Math.ceil(sortedClaims.length / itemsPerPage));
+      }
     };
 
     fetchIncomingClaims();
@@ -142,8 +144,6 @@ const Incoming = () => {
       }
     };
     getActor();
-
-    //console.log(getActor);
   };
 
   // Helper function to handle image load

@@ -29,18 +29,17 @@ const ClientList = () => {
       const response = await axios.delete(
         `${GENERAL_URL}/user_managements/${id}`
       );
-      console.log(response);
+      const { success } = response.data;
+      if (success) {
+        setIsLoading(false);
+        dispatch(deleteClient(id));
+      } else {
+        setIsLoading(false);
+        alert("Error deleting Client");
+      }
     } catch (error) {
       console.log(error.response.data);
     }
-    // const { success } = response.data;
-    // if (success) {
-    //   setIsLoading(false);
-    //   dispatch(deleteClient(id));
-    // } else {
-    //   setIsLoading(false);
-    //   alert("Error deleting Client");
-    // }
   };
 
   const startIndex = currentPage * itemsPerPage;

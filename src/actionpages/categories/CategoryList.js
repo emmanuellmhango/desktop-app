@@ -16,12 +16,14 @@ const CategoriesList = () => {
 
   useEffect(() => {
     const sortCategories = async () => {
-      const newArr = await categories.map((category) => category);
-      const sortedCategories = await newArr
-        .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
-        .map((category) => ({ ...category, imageLoaded: false }));
+      if (categories) {
+        const newArr = await categories.map((category) => category);
+        const sortedCategories = await newArr
+          .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+          .map((category) => ({ ...category, imageLoaded: false }));
 
-      setSortedCategory(sortedCategories);
+        setSortedCategory(sortedCategories);
+      }
     };
 
     sortCategories();
