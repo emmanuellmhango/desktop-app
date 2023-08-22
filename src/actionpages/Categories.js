@@ -13,7 +13,7 @@ const Categories = () => {
             <Sidebar />
           </div>
           <div className="categoryBody">
-            <div className="categoryForm">
+            <div className="categoryForm2">
               <CategoryForm />
             </div>
             <div className="categoriesList">

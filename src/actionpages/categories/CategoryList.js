@@ -59,7 +59,8 @@ const CategoriesList = () => {
           <thead>
             <tr>
               <th className="categoryItemCounter">#</th>
-              <th>Category</th>
+              <th className="categoryName">Category</th>
+              <th>Description</th>
               <th className="categoryItemIcon">Icon</th>
               <th className="categoryItemCounter"></th>
             </tr>
@@ -70,11 +71,12 @@ const CategoriesList = () => {
                 <tr key={category.id} className="categoryItemCat">
                   <td className="categoryItemCounter">{index + 1}</td>
                   <td className="catname">{category.name}</td>
+                  <td className="catname">{category.description}</td>
                   <td className="catIconBorder">
                     <object
                       data={category.iconUrl}
                       type="image/svg+xml"
-                      // className="iconCategory"
+                      className="iconCategory"
                       onLoad={() => handleIconLoad(index)}
                     >
                       <img

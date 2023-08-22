@@ -31,9 +31,9 @@ const CategoryForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
-    const name = event.target.name.value;
     const formData = new FormData();
-    formData.append("category[name]", name);
+    formData.append("category[name]", event.target.name.value);
+    formData.append("category[description]", event.target.description.value);
     formData.append("category[user_management_id]", selectedClient.value);
     formData.append("category[icon]", event.target.icon.files[0]);
 
@@ -59,6 +59,7 @@ const CategoryForm = () => {
       alert("Oops! Something went wrong, please try again");
     }
   };
+
   return (
     <form id="form-edt" onSubmit={handleSubmit}>
       {isLoading ? <LoadingSpinner /> : null}
@@ -76,6 +77,18 @@ const CategoryForm = () => {
           className="form-control-l-inputcat"
           required
           placeholder="E.g. Infrastructure"
+        />
+      </div>
+      <div className="form-group-select">
+        <label htmlFor="description" className="label-client">
+          Description
+        </label>
+        <textarea
+          id="description"
+          name="description"
+          placeholder="E.g. This category is for all electricity related tags. use *your text* for bullet points"
+          className="form-control-l-inputcat-textarea"
+          required
         />
       </div>
       <div className="form-group-select">

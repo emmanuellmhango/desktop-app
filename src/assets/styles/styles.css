@@ -46,13 +46,17 @@
     height: 50px;
     aspect-ratio: 1/1;
     object-fit: contain;
-    border: 1px solid #ccc;
   }
 
   .catname {
     text-align: center;
   }
 
+  .categoryName {
+    font-size: 12px;
+    font-weight: 400;
+    width: 150px;
+  }
   .categoryItemCat {}
 
   .categoryItemCat:hover {
@@ -139,6 +143,14 @@
     margin: 0 10px 0 10px;
   }
 
+  .categoryForm2 {
+    width: 250px;
+    height: 60%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin: 0 10px 0 10px;
+  }
+
   .form-control-btn-client {
     width: 100px;
     max-width: 20rem;
@@ -151,6 +163,19 @@
     border: none;
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
+  }
+
+  .form-control-l-inputcat-textarea {
+    width: 90%;
+    border-radius: 15px;
+    height: 100px;
+    margin: 5px 0;
+    border: 1px solid #5e2bff;
+    font-size: 12px;
+    padding-left: 12px;
+    outline: none;
+    font-weight: 500;
+    transition: border-color 0.2s ease-in-out;
   }
 
   .form-control-l-inputcat {
