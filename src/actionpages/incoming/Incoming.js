@@ -158,7 +158,7 @@ const Incoming = () => {
     <div className="ClaimsList">
       <div className="claimsListHeader">
         <span className="claimsheaderWS">
-          <h3 className="title">Incoming Claims</h3>
+          <h3 className="title">Incoming Tags</h3>
         </span>
         <span className="claimsheaderDS title">Incoming Claims</span>
         <span>

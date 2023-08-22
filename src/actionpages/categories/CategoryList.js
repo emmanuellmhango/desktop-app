@@ -71,12 +71,18 @@ const CategoriesList = () => {
                   <td className="categoryItemCounter">{index + 1}</td>
                   <td className="catname">{category.name}</td>
                   <td className="catIconBorder">
-                    <img
-                      src={category.imageLoaded ? category.icon : blurImage}
-                      alt="Icon"
-                      className="iconCategory"
+                    <object
+                      data={category.iconUrl}
+                      type="image/svg+xml"
+                      // className="iconCategory"
                       onLoad={() => handleIconLoad(index)}
-                    />
+                    >
+                      <img
+                        src={blurImage}
+                        alt="Icon"
+                        className="iconCategory"
+                      />
+                    </object>
                   </td>
                   <td className="categoryItemDeleted deliconcategory">
                     <MdDeleteOutline

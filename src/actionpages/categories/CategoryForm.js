@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import Select from "react-select";
@@ -14,6 +14,7 @@ const CategoryForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [clientData, setClientData] = useState([]);
   const [selectedClient, setSelectedClient] = useState("");
+  const imagesRef = useRef([]);
 
   useEffect(() => {
     setClientData([]);
@@ -31,28 +32,27 @@ const CategoryForm = () => {
     event.preventDefault();
     setIsLoading(true);
     const name = event.target.name.value;
-    const iconFile = event.target.icon.files[0];
     const formData = new FormData();
-    formData.append("name", name);
-    formData.append("client_id", selectedClient);
-    formData.append("icon", iconFile);
-
-    event.target.name.value = "";
-    event.target.icon.value = null;
+    formData.append("category[name]", name);
+    formData.append("category[user_management_id]", selectedClient.value);
+    formData.append("category[icon]", event.target.icon.files[0]);
 
     try {
-      const response = await axios.post(`${GENERAL_URL}/categories`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-      setIsLoading(false);
-      const { success, categories } = response.data;
-      if (success) {
-        dispatch(addCategory(categories));
-      } else {
-        alert(`Error saving data, Please try again!!`);
-      }
+      fetch(`${GENERAL_URL}/categories`, {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          setIsLoading(false);
+          const { success, categories } = data;
+          if (success) {
+            console.log(categories);
+            dispatch(addCategory(categories));
+          } else {
+            alert(`Error saving data, Please try again!!`);
+          }
+        });
     } catch (error) {
       setIsLoading(false);
       console.log(error);
@@ -88,7 +88,9 @@ const CategoryForm = () => {
           name="icon"
           className="form-control-l-iconcat"
           required
-          accept=".jpg, .png, .jpeg"
+          accept=".jpg, .png, .jpeg, .svg"
+          multiple
+          ref={imagesRef}
         />
       </div>
       <div className="form-group-select">

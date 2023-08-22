@@ -7,6 +7,7 @@ import { GENERAL_URL } from "../../state/url";
 import { deleteClient } from "../../state/clientSlice";
 import LoadingSpinner from "../../startscreens/Spinner";
 import "../../assets/styles/styles.css";
+import formatDateTime from "../../state/formatDate";
 
 const ClientList = () => {
   const dispatch = useDispatch();
@@ -62,8 +63,10 @@ const ClientList = () => {
             <tr>
               <th className="categoryItemCounter">#</th>
               <th scope="col">Company Name</th>
-              <th scope="col">Email</th>
-              <th scope="col">Phone Number</th>
+              <th scope="col">Contacts</th>
+              <th scope="col" className="normalspace2">
+                Date Added
+              </th>
               <th scope="col">Social Link</th>
               <th className="actionUsersWidth"></th>
             </tr>
@@ -74,8 +77,13 @@ const ClientList = () => {
                 <tr key={index} className="tableRow">
                   <td>{currentPage * itemsPerPage + index + 1}</td>
                   <td className="normalspace">{client.company_name}</td>
-                  <td className="normalspace">{client.email}</td>
-                  <td className="normalspace">{client.phone}</td>
+                  <td>
+                    <span>E: {client.email}</span> <br />
+                    <span>T: {client.phone}</span>
+                  </td>
+                  <td className="normalspace2">
+                    {formatDateTime(client.created_at)}
+                  </td>
                   <td>{client.social_link}</td>
                   <td>
                     <MdDeleteOutline

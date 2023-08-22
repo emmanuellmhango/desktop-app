@@ -6,6 +6,7 @@ import "../../assets/styles/styles.css";
 import { NavLink } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import blurImage from "../../assets/images/holder.jpg";
+import formatDateTime from "../../state/formatDate";
 
 function AllClaims() {
   const navigate = useNavigate();
@@ -39,15 +40,6 @@ function AllClaims() {
     setCurrentPage(selectedPage.selected);
   };
 
-  function formatDateTime(dateTimeString) {
-    const options = {
-      dateStyle: "short",
-      timeStyle: "short",
-    };
-    const dateTime = new Date(dateTimeString);
-    return dateTime.toLocaleString(undefined, options);
-  }
-
   const goToMap = (event, claim_id) => {
     event.preventDefault();
     navigate("/map", { claim_id: claim_id });
@@ -63,7 +55,7 @@ function AllClaims() {
     <div className="ClaimsList">
       <div className="claimsListHeader">
         <span>
-          <h3 className="title">All Claims</h3>
+          <h3 className="title">All Tags</h3>
         </span>
         <span>
           <NavLink to="/map">

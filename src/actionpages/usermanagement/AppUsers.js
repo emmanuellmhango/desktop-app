@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { MdDeleteOutline } from "react-icons/md";
 import axios from "axios";
 import URL from "../../state/url";
@@ -10,10 +10,12 @@ import "../../assets/styles/styles.css";
 const AppUsers = ({ appUsers }) => {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
+  const { user } = useSelector((state) => state.user);
 
   const deleteItem = async (id) => {
     setIsLoading(true);
     const response = await axios.delete(`${URL}/${id}`);
+
     const { success } = response.data;
     if (success) {
       setIsLoading(false);
@@ -36,7 +38,9 @@ const AppUsers = ({ appUsers }) => {
             <th>Name</th>
             <th>Email</th>
             <th>Phone</th>
-            <th className="userCounter"></th>
+            {user.role === "superadmin" ? (
+              <th className="userCounter"></th>
+            ) : null}
           </tr>
           <tbody>
             {appUsers &&
@@ -45,13 +49,15 @@ const AppUsers = ({ appUsers }) => {
                   <td className="clientItemName">{appUser.name}</td>
                   <td className="categoryItemName">{appUser.email}</td>
                   <td className="categoryItemName">{appUser.phone}</td>
-                  <td>
-                    <MdDeleteOutline
-                      className="delete-icon"
-                      disabled={isLoading}
-                      onClick={() => deleteItem(appUser.id)}
-                    />
-                  </td>
+                  {user.role === "superadmin" ? (
+                    <td>
+                      <MdDeleteOutline
+                        className="delete-icon"
+                        disabled={isLoading}
+                        onClick={() => deleteItem(appUser.id)}
+                      />
+                    </td>
+                  ) : null}
                 </tr>
               ))}
           </tbody>

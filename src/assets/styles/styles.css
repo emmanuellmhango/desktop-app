@@ -682,6 +682,10 @@
 
   .normalspace {
     width: 150px;
+  }  
+  
+  .normalspace2 {
+    width: 125px;
   }
 
   .actionButtonForward {

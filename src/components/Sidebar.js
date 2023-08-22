@@ -88,7 +88,7 @@ const Sidebar = () => {
                     color="white"
                     className="sidebarMenuM"
                   />
-                  <span className="padLeft">Incoming Claims</span>
+                  <span className="padLeft">Incoming Tags</span>
                 </div>
               </li>
             </NavLink>
@@ -105,7 +105,7 @@ const Sidebar = () => {
                     color="white"
                     className="sidebarMenuM"
                   />
-                  <span className="padLeft">All Claims</span>
+                  <span className="padLeft">All Tags</span>
                 </div>
               </li>
             </NavLink>
